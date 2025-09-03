@@ -11,76 +11,412 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ... (le reste de votre CSS reste inchangé) ... */
-
-        /* Styles pour la zone de dépôt PDF */
-        .pdf-drop-zone {
-            border: 3px dashed #ccc;
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            background-color: #f8f9fa;
+        :root {
+            --primary-color: #4e57d4;
+            --secondary-color: #6c757d;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+            --accent-color: #17a2b8;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
             transition: all 0.3s ease;
-            cursor: pointer;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            color: var(--dark-color);
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #4e57d4 0%, #6a11cb 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
             margin-bottom: 30px;
         }
-
-        .pdf-drop-zone:hover, .pdf-drop-zone.dragover {
+        
+        .btn-primary {
+            background-color: var(--primary-color);
             border-color: var(--primary-color);
-            background-color: rgba(78, 87, 212, 0.05);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
         }
-
-        .drop-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
+        
+        .btn-primary:hover {
+            background-color: #3a42b8;
+            border-color: #3a42b8;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-
-        .pdf-item {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-weight: 700;
+            color: var(--dark-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .about-content {
             display: flex;
             align-items: center;
-            transition: transform 0.3s ease;
         }
-
-        .pdf-item:hover {
-            transform: translateY(-5px);
+        
+        .skill-item {
+            margin-bottom: 25px;
         }
-
-        .pdf-icon {
-            font-size: 2.5rem;
-            color: #e74c3c;
-            margin-right: 20px;
-        }
-
-        .pdf-info {
-            flex-grow: 1;
-        }
-
-        .pdf-actions {
+        
+        .skill-info {
             display: flex;
-            gap: 10px;
+            justify-content: space-between;
+            margin-bottom: 10px;
         }
-
-        .pdf-list {
-            max-height: 500px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-
-        /* Style pour la barre de progression */
+        
         .progress {
-            height: 8px;
-            margin-top: 10px;
+            height: 10px;
+            border-radius: 5px;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        .project-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .experience-item {
+            border-left: 2px solid var(--primary-color);
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            left: -9px;
+            top: 5px;
+        }
+        
+        .experience-date {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background-color: var(--dark-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        /* Icône profil */
+        .profile-icon {
+            font-size: 8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .profile-icon {
+                font-size: 5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- ... (le reste de votre HTML reste inchangé jusqu'à la section Projets) ... -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Yoann Tournal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#apropos">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#competences">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projets">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Expérience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="profile-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h1>Yoann Tournal</h1>
+                    <p>Étudiant en Systèmes Numériques</p>
+                    <a href="#contact" class="btn btn-light btn-lg">Me contacter</a>
+                    <a href="#" class="btn btn-outline-light btn-lg ms-3" id="downloadCV">Télécharger mon CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos">
+        <div class="container">
+            <div class="section-title">
+                <h2>À propos de moi</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h3 class="text-center mb-4">Étudiant passionné par les systèmes numériques</h3>
+                    <p class="text-center">Je suis actuellement en formation dans le domaine des systèmes numériques, avec pour objectif de poursuivre mes études dans ce secteur en constante évolution.</p>
+                    <p class="text-center">Mes différentes expériences professionnelles m'ont permis de développer des compétences techniques solides ainsi qu'un sens des responsabilités et du travail en équipe.</p>
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><strong>Email :</strong> tournalyoann1@gmail.com</li>
+                                <li><strong>Téléphone :</strong> 06 44 87 08 82</li>
+                                <li><strong>Ville :</strong> Gap, France</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><strong>Disponibilité :</strong> Immédiate</li>
+                                <li><strong>Langues :</strong> Français</li>
+                                <li><strong>Permis :</strong> B</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="competences" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes compétences</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>Informatique</h5>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>Électricité</h5>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>Réseaux</h5>
+                            <span>70%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>Communication</h5>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>Travail d'équipe</h5>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>Résolution de problèmes</h5>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Projects Section -->
     <section id="projets">
@@ -88,171 +424,302 @@
             <div class="section-title">
                 <h2>Mes projets</h2>
             </div>
-            
-            <div class="row mb-5">
-                <div class="col-lg-12">
-                    <div class="pdf-drop-zone" id="pdfDropZone">
-                        <div class="drop-icon">
-                            <i class="fas fa-file-pdf"></i>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="project-img" alt="Projet développement web">
+                        <div class="project-content">
+                            <h4>Site E-commerce</h4>
+                            <p>Développement d'une plateforme e-commerce complète avec gestion des produits et panier d'achat.</p>
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#projectModal1">Voir les détails</button>
                         </div>
-                        <h4>Glissez-déposez vos fichiers PDF ici</h4>
-                        <p>ou</p>
-                        <button class="btn btn-primary" id="browseButton">Parcourir les fichiers</button>
-                        <input type="file" id="fileInput" accept=".pdf" multiple style="display: none;">
                     </div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="mb-4">Mes projets PDF</h3>
-                    <div class="pdf-list" id="pdfList">
-                        <p class="text-muted text-center" id="emptyMessage">Aucun projet PDF pour le moment. Ajoutez-en en glissant des fichiers dans la zone ci-dessus.</p>
-                        
-                        <!-- Les PDF ajoutés apparaîtront ici dynamiquement -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="project-img" alt="Projet automatisation">
+                        <div class="project-content">
+                            <h4>Système Domotique</h4>
+                            <p>Conception et installation d'un système domotique pour la gestion énergétique d'un habitat.</p>
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#projectModal2">Voir les détails</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80" class="project-img" alt="Projet réseau">
+                        <div class="project-content">
+                            <h4>Réseau Local Entreprise</h4>
+                            <p>Mise en place d'un réseau local sécurisé pour une PME avec gestion des accès et sauvegarde.</p>
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#projectModal3">Voir les détails</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ... (le reste de votre HTML reste inchangé) ... -->
+    <!-- Experience Section -->
+    <section id="experience" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mon expérience</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="experience-item">
+                        <span class="experience-date">2025 - 3 semaines</span>
+                        <h4>Alpes Conseil Informatique Gap</h4>
+                        <p>Stage effectué dans le domaine de l'informatique</p>
+                    </div>
+                    <div class="experience-item">
+                        <span class="experience-date">2024 - 3 semaines</span>
+                        <h4>Collège/Lycée Saint-Joseph Gap</h4>
+                        <p>Stage effectué dans le domaine de l'informatique</p>
+                    </div>
+                    <div class="experience-item">
+                        <span class="experience-date">2023 - 4 semaines</span>
+                        <h4>LDI Rousset</h4>
+                        <p>Stage effectué dans le domaine de l'informatique</p>
+                    </div>
+                    <div class="experience-item">
+                        <span class="experience-date">2022 - 3 semaines</span>
+                        <h4>NLJPC Gap</h4>
+                        <p>Stage effectué dans le domaine de l'informatique</p>
+                    </div>
+                    <div class="experience-item">
+                        <span class="experience-date">2022 - 3 semaines</span>
+                        <h4>Allemand Électricité</h4>
+                        <p>Stage effectué dans le domaine de l'électricité</p>
+                    </div>
+                    <div class="experience-item">
+                        <span class="experience-date">2021 - 1 semaine</span>
+                        <h4>Instore Solution Gap</h4>
+                        <p>Stage effectué dans le domaine de l'informatique</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Formation</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="experience-item">
+                        <span class="experience-date">2022-2025</span>
+                        <h4>Lycée Pierre Mendès France, Veynes</h4>
+                        <p>Bac pro Système Numérique</p>
+                    </div>
+                    <div class="experience-item">
+                        <span class="experience-date">2018-2022</span>
+                        <h4>Collège Marcel André Seyne</h4>
+                        <p>Brevet des Collèges</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-moi</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <p>tournalyoann1@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Téléphone</h4>
+                        <p>06 44 87 08 82</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Localisation</h4>
+                        <p>Gap, France</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Votre nom" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Votre email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control" placeholder="Sujet" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea class="form-control" rows="5" placeholder="Votre message" required></textarea>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Links -->
+    <div class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h3 class="mb-4">Suivez-moi sur les réseaux sociaux</h3>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Yoann Tournal. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Project Modals -->
+    <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Site E-commerce</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="img-fluid mb-3" alt="Projet développement web">
+                    <p>Développement d'une plateforme e-commerce complète avec les fonctionnalités suivantes :</p>
+                    <ul>
+                        <li>Interface responsive et moderne</li>
+                        <li>Gestion des produits et catégories</li>
+                        <li>Panier d'achat et processus de commande</li>
+                        <li>Système de paiement sécurisé</li>
+                        <li>Espace client avec historique des commandes</li>
+                    </ul>
+                    <p><strong>Technologies utilisées :</strong> HTML, CSS, JavaScript, PHP, MySQL</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Système Domotique</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="img-fluid mb-3" alt="Projet automatisation">
+                    <p>Conception et installation d'un système domotique pour la gestion énergétique d'un habitat incluant :</p>
+                    <ul>
+                        <li>Contrôle de l'éclairage et du chauffage</li>
+                        <li>Gestion des appareils électriques</li>
+                        <li>Surveillance à distance</li>
+                        <li>Optimisation de la consommation énergétique</li>
+                        <li>Interface de contrôle intuitive</li>
+                    </ul>
+                    <p><strong>Technologies utilisées :</strong> Arduino, Raspberry Pi, Python, Capteurs IoT</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Réseau Local Entreprise</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80" class="img-fluid mb-3" alt="Projet réseau">
+                    <p>Mise en place d'un réseau local sécurisé pour une PME avec les caractéristiques suivantes :</p>
+                    <ul>
+                        <li>Architecture réseau robuste et scalable</li>
+                        <li>Système de sécurité avec pare-feu et VLAN</li>
+                        <li>Gestion centralisée des utilisateurs et des accès</li>
+                        <li>Système de sauvegarde automatisé</li>
+                        <li>Surveillance et maintenance proactive</li>
+                    </ul>
+                    <p><strong>Technologies utilisées :</strong> Cisco, Windows Server, Active Directory, VPN</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Bootstrap & JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // ... (le reste de votre JavaScript existant) ...
+        // Téléchargement du CV
+        document.getElementById('downloadCV').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Créer un lien de téléchargement
+            const link = document.createElement('a');
+            link.href = 'CV_de_Yoann.pdf'; // Remplacez par le chemin réel de votre CV
+            link.download = 'CV_Yoann_Tournal.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
 
-        // Gestion de la zone de glisser-déposer PDF
+        // Animation au défilement
         document.addEventListener('DOMContentLoaded', function() {
-            const dropZone = document.getElementById('pdfDropZone');
-            const fileInput = document.getElementById('fileInput');
-            const browseButton = document.getElementById('browseButton');
-            const pdfList = document.getElementById('pdfList');
-            const emptyMessage = document.getElementById('emptyMessage');
-
-            // Ouvrir l'explorateur de fichiers lors du clic sur le bouton
-            browseButton.addEventListener('click', () => {
-                fileInput.click();
-            });
-
-            // Gérer la sélection de fichiers via l'input
-            fileInput.addEventListener('change', handleFileSelect);
-
-            // Empêcher les comportements par défaut pour les événements de drag
-            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                dropZone.addEventListener(eventName, preventDefaults, false);
-            });
-
-            // Effet visuel lors du survol de la zone
-            ['dragenter', 'dragover'].forEach(eventName => {
-                dropZone.addEventListener(eventName, highlight, false);
-            });
-
-            ['dragleave', 'drop'].forEach(eventName => {
-                dropZone.addEventListener(eventName, unhighlight, false);
-            });
-
-            // Gérer le dépôt de fichiers
-            dropZone.addEventListener('drop', handleDrop, false);
-
-            function preventDefaults(e) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-
-            function highlight() {
-                dropZone.classList.add('dragover');
-            }
-
-            function unhighlight() {
-                dropZone.classList.remove('dragover');
-            }
-
-            function handleDrop(e) {
-                const dt = e.dataTransfer;
-                const files = dt.files;
-                handleFiles(files);
-            }
-
-            function handleFileSelect(e) {
-                const files = e.target.files;
-                handleFiles(files);
-            }
-
-            function handleFiles(files) {
-                if (files.length > 0) {
-                    emptyMessage.style.display = 'none';
-                }
-
-                for (let i = 0; i < files.length; i++) {
-                    const file = files[i];
-                    if (file.type === 'application/pdf') {
-                        addPdfToList(file);
-                    } else {
-                        alert('Seuls les fichiers PDF sont acceptés.');
+            const sections = document.querySelectorAll('section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
                     }
-                }
-            }
-
-            function addPdfToList(file) {
-                const fileReader = new FileReader();
-                
-                fileReader.readAsDataURL(file);
-                fileReader.onload = function() {
-                    const pdfItem = document.createElement('div');
-                    pdfItem.className = 'pdf-item';
-                    
-                    pdfItem.innerHTML = `
-                        <div class="pdf-icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
-                        <div class="pdf-info">
-                            <h5>${file.name}</h5>
-                            <p>Taille: ${formatFileSize(file.size)}</p>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 100%"></div>
-                            </div>
-                        </div>
-                        <div class="pdf-actions">
-                            <button class="btn btn-sm btn-outline-primary view-pdf" data-url="${fileReader.result}">
-                                <i class="fas fa-eye"></i> Voir
-                            </button>
-                            <a href="${fileReader.result}" download="${file.name}" class="btn btn-sm btn-outline-success">
-                                <i class="fas fa-download"></i> Télécharger
-                            </a>
-                            <button class="btn btn-sm btn-outline-danger delete-pdf">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </div>
-                    `;
-                    
-                    pdfList.appendChild(pdfItem);
-                    
-                    // Ajouter les événements aux boutons
-                    const deleteBtn = pdfItem.querySelector('.delete-pdf');
-                    deleteBtn.addEventListener('click', function() {
-                        pdfItem.remove();
-                        if (pdfList.children.length === 1) { // Seul le message vide reste
-                            emptyMessage.style.display = 'block';
-                        }
-                    });
-                    
-                    const viewBtn = pdfItem.querySelector('.view-pdf');
-                    viewBtn.addEventListener('click', function() {
-                        const pdfUrl = this.getAttribute('data-url');
-                        window.open(pdfUrl, '_blank');
-                    });
-                };
-            }
-
-            function formatFileSize(bytes) {
-                if (bytes === 0) return '0 Bytes';
-                const k = 1024;
-                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-                const i = Math.floor(Math.log(bytes) / Math.log(k));
-                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-            }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Gestion de l'envoi du formulaire
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Merci pour votre message ! Je vous répondrai très rapidement.');
+                this.reset();
+            });
         });
     </script>
 </body>
