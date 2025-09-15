@@ -265,6 +265,27 @@
                 font-size: 5rem;
             }
         }
+        /* Compétences modernes */
+.skill-card {
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.skill-card .icon {
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover .icon {
+    transform: rotate(10deg) scale(1.2);
+}
+
     </style>
 </head>
 <body>
@@ -350,16 +371,55 @@
 
     <!-- Skills Section -->
 <section id="competences" class="bg-light">
-        <div class="container">
-            <div class="section-title"><h2>Mes compétences</h2></div>
-            <div class="skills-grid">
-                <div class="skill-card"><i class="fas fa-desktop"></i><h5>Informatique niveau 1</h5><p>Montage PC et Installation OS Microsoft</p></div>
-                <div class="skill-card"><i class="fas fa-server"></i><h5>Serveurs Debian</h5><p>Samba, FOG, FTP...</p></div>
-                <div class="skill-card"><i class="fas fa-cloud"></i><h5>Hyperviseur</h5><p>Proxmox</p></div>
-                <div class="skill-card"><i class="fas fa-network-wired"></i><h5>Configuration Switch L2</h5><p>Cisco, Netgear, HP</p></div>
+    <div class="container">
+        <div class="section-title"><h2>Mes compétences</h2></div>
+        <div class="row gy-4">
+            <!-- Compétence 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card text-center shadow p-4 rounded h-100">
+                    <div class="icon mb-3 text-primary">
+                        <i class="fas fa-desktop fa-3x"></i>
+                    </div>
+                    <h5>Informatique niveau 1</h5>
+                    <p class="text-muted">Montage PC et installation d'OS Microsoft</p>
+                </div>
+            </div>
+
+            <!-- Compétence 2 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card text-center shadow p-4 rounded h-100">
+                    <div class="icon mb-3 text-success">
+                        <i class="fas fa-server fa-3x"></i>
+                    </div>
+                    <h5>Serveurs Debian</h5>
+                    <p class="text-muted">Samba, FOG, FTP...</p>
+                </div>
+            </div>
+
+            <!-- Compétence 3 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card text-center shadow p-4 rounded h-100">
+                    <div class="icon mb-3 text-warning">
+                        <i class="fas fa-cloud fa-3x"></i>
+                    </div>
+                    <h5>Hyperviseur</h5>
+                    <p class="text-muted">Proxmox</p>
+                </div>
+            </div>
+
+            <!-- Compétence 4 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card text-center shadow p-4 rounded h-100">
+                    <div class="icon mb-3 text-danger">
+                        <i class="fas fa-network-wired fa-3x"></i>
+                    </div>
+                    <h5>Configuration Switch L2</h5>
+                    <p class="text-muted">Cisco, Netgear, HP</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
     <!-- Projects Section -->
