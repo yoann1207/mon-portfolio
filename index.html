@@ -1,1187 +1,879 @@
-diff --git a/index.html b/index.html
-index 309d2a4352fd491e4b4ca8194cad69b1e7382188..e854f94a3bff410fe755cda83d6c1a9b93704b21 100644
---- a/index.html
-+++ b/index.html
-@@ -1,125 +1,249 @@
- <!DOCTYPE html>
- <html lang="fr">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Yoann Tournal - Portfolio</title>
-     <!-- Bootstrap 5 CSS -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-     <!-- Font Awesome Icons -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-     <!-- Google Fonts -->
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-     <style>
-         :root {
-             --primary-color: #4e57d4;
-             --secondary-color: #6c757d;
-             --dark-color: #343a40;
-             --light-color: #f8f9fa;
-             --accent-color: #17a2b8;
-+            --hero-gradient-start: #4e57d4;
-+            --hero-gradient-end: #6a11cb;
-         }
--        
-+
-         body {
-             font-family: 'Poppins', sans-serif;
-             color: #333;
-             scroll-behavior: smooth;
-+            background-color: var(--light-color);
-         }
--        
-+
-         .navbar {
-             background-color: rgba(255, 255, 255, 0.95);
--            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
--            padding: 15px 0;
-+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-+            padding: 18px 0;
-             transition: all 0.3s ease;
-         }
-+
-+        .navbar.scrolled {
-+            padding: 10px 0;
-+            box-shadow: 0 12px 30px rgba(78, 87, 212, 0.12);
-+            backdrop-filter: blur(6px);
-+        }
-         
-         .navbar-brand {
-             font-weight: 700;
-             color: var(--primary-color);
-         }
-         
-         .nav-link {
-             font-weight: 500;
-             margin: 0 10px;
-             color: var(--dark-color);
-             transition: color 0.3s;
-+            position: relative;
-         }
--        
-+
-+        .nav-link::after {
-+            content: '';
-+            position: absolute;
-+            left: 0;
-+            bottom: -6px;
-+            width: 100%;
-+            height: 3px;
-+            background: linear-gradient(90deg, var(--primary-color), transparent);
-+            transform: scaleX(0);
-+            transform-origin: left;
-+            transition: transform 0.3s ease;
-+        }
-+
-         .nav-link:hover {
-             color: var(--primary-color);
-         }
-+
-+        .nav-link:hover::after,
-+        .nav-link:focus-visible::after {
-+            transform: scaleX(1);
-+        }
-         
-         section {
-             padding: 100px 0;
-         }
-         
-         .hero {
--            background: linear-gradient(135deg, #4e57d4 0%, #6a11cb 100%);
-+            background: linear-gradient(135deg, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%);
-             color: white;
--            padding: 150px 0 100px;
-+            padding: 160px 0 120px;
-             text-align: center;
-+            position: relative;
-+            overflow: hidden;
-+            background-size: 200% 200%;
-+            animation: gradientShift 12s ease infinite;
-+        }
-+
-+        .hero::before,
-+        .hero::after {
-+            content: '';
-+            position: absolute;
-+            border-radius: 50%;
-+            background: rgba(255, 255, 255, 0.08);
-+            filter: blur(0);
-+            animation: float 12s ease-in-out infinite;
-+        }
-+
-+        .hero::before {
-+            width: 420px;
-+            height: 420px;
-+            top: -140px;
-+            right: -140px;
-+            animation-delay: 1.5s;
-+        }
-+
-+        .hero::after {
-+            width: 320px;
-+            height: 320px;
-+            bottom: -160px;
-+            left: -120px;
-+        }
-+
-+        .floating-shape {
-+            position: absolute;
-+            border-radius: 20px;
-+            background: rgba(255, 255, 255, 0.08);
-+            backdrop-filter: blur(3px);
-+            animation: float 8s ease-in-out infinite;
-+            z-index: 0;
-+        }
-+
-+        .hero .container {
-+            position: relative;
-+            z-index: 1;
-+        }
-+
-+        .floating-shape.shape-1 {
-+            width: 120px;
-+            height: 120px;
-+            top: 15%;
-+            left: 10%;
-+        }
-+
-+        .floating-shape.shape-2 {
-+            width: 90px;
-+            height: 90px;
-+            bottom: 20%;
-+            right: 18%;
-+            animation-duration: 10s;
-+            animation-delay: 1s;
-+        }
-+
-+        .floating-shape.shape-3 {
-+            width: 70px;
-+            height: 70px;
-+            top: 35%;
-+            right: 8%;
-+            animation-duration: 7s;
-+            animation-delay: 0.5s;
-         }
-         
-         .hero h1 {
-             font-size: 3.5rem;
-             font-weight: 700;
-             margin-bottom: 20px;
-         }
--        
-+
-         .hero p {
-             font-size: 1.5rem;
-             margin-bottom: 30px;
-+            max-width: 680px;
-+            margin-left: auto;
-+            margin-right: auto;
-+            line-height: 1.6;
-         }
-         
-         .btn-primary {
-             background-color: var(--primary-color);
-             border-color: var(--primary-color);
-             padding: 12px 30px;
-             border-radius: 30px;
-             font-weight: 500;
-             transition: all 0.3s;
-         }
--        
-+
-         .btn-primary:hover {
-             background-color: #3a42b8;
-             border-color: #3a42b8;
-             transform: translateY(-3px);
-             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-         }
-+
-+        .btn-glow {
-+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
-+        }
-+
-+        .btn-glow:hover {
-+            box-shadow: 0 18px 40px rgba(255, 255, 255, 0.35);
-+        }
-+
-+        .btn-outline-light {
-+            border-radius: 30px;
-+            padding: 12px 30px;
-+            border-width: 2px;
-+            transition: all 0.3s ease;
-+        }
-+
-+        .btn-outline-light:hover {
-+            background-color: rgba(255, 255, 255, 0.2);
-+            border-color: rgba(255, 255, 255, 0.6);
-+            transform: translateY(-3px);
-+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-+        }
-         
-         .section-title {
-             text-align: center;
-             margin-bottom: 60px;
-         }
-         
-         .section-title h2 {
-             font-weight: 700;
-             color: var(--dark-color);
-             position: relative;
-             padding-bottom: 15px;
-+            display: inline-block;
-+            animation: shimmer 5s ease-in-out infinite;
-         }
--        
-+
-         .section-title h2::after {
-             content: '';
-             position: absolute;
-             bottom: 0;
-             left: 50%;
-             transform: translateX(-50%);
-             width: 80px;
-             height: 3px;
-             background-color: var(--primary-color);
-         }
-         
-         .about-content {
-             display: flex;
-             align-items: center;
-         }
-         
-         .skill-item {
-             margin-bottom: 25px;
-         }
-         
-         .skill-info {
-             display: flex;
-             justify-content: space-between;
-             margin-bottom: 10px;
-         }
-diff --git a/index.html b/index.html
-index 309d2a4352fd491e4b4ca8194cad69b1e7382188..e854f94a3bff410fe755cda83d6c1a9b93704b21 100644
---- a/index.html
-+++ b/index.html
-@@ -165,622 +289,727 @@
-         
-         .experience-item::before {
-             content: '';
-             position: absolute;
-             width: 16px;
-             height: 16px;
-             border-radius: 50%;
-             background-color: var(--primary-color);
-             left: -9px;
-             top: 5px;
-         }
-         
-         .experience-date {
-             background-color: var(--primary-color);
-             color: white;
-             padding: 5px 15px;
-             border-radius: 20px;
-             display: inline-block;
-             margin-bottom: 15px;
-             font-size: 0.9rem;
-         }
-         
-         .contact-info {
-             text-align: center;
-             margin-bottom: 30px;
-+            background-color: white;
-+            border-radius: 20px;
-+            padding: 30px 20px;
-+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
-+            transition: transform 0.3s ease, box-shadow 0.3s ease;
-         }
--        
-+
-+        .contact-info:hover {
-+            transform: translateY(-8px);
-+            box-shadow: 0 20px 45px rgba(78, 87, 212, 0.15);
-+        }
-+
-         .contact-icon {
-             font-size: 2.5rem;
-             color: var(--primary-color);
-             margin-bottom: 20px;
-+            animation: pulse 2.8s infinite;
-         }
-         
-         .social-links {
-             margin-top: 30px;
-         }
-         
-         .social-links a {
-             display: inline-block;
-             width: 50px;
-             height: 50px;
-             background-color: var(--primary-color);
-             color: white;
-             border-radius: 50%;
-             text-align: center;
-             line-height: 50px;
-             margin: 0 10px;
-             transition: all 0.3s;
-         }
-         
-         .social-links a:hover {
-             transform: translateY(-5px);
-             background-color: var(--dark-color);
-         }
-         
-         footer {
-             background-color: var(--dark-color);
-             color: white;
-             padding: 30px 0;
-             text-align: center;
-         }
--        
-+
-         /* Animation */
-         @keyframes fadeIn {
-             from {
-                 opacity: 0;
-                 transform: translateY(20px);
-             }
-             to {
-                 opacity: 1;
-                 transform: translateY(0);
-             }
-         }
--        
-+
-         .fade-in {
-             animation: fadeIn 1s ease forwards;
-         }
--        
-+
-+        @keyframes gradientShift {
-+            0% {
-+                background-position: 0% 50%;
-+            }
-+            50% {
-+                background-position: 100% 50%;
-+            }
-+            100% {
-+                background-position: 0% 50%;
-+            }
-+        }
-+
-+        @keyframes float {
-+            0%, 100% {
-+                transform: translateY(0) rotate(0deg);
-+            }
-+            50% {
-+                transform: translateY(-20px) rotate(5deg);
-+            }
-+        }
-+
-+        @keyframes pulse {
-+            0%, 100% {
-+                transform: scale(1);
-+                opacity: 1;
-+            }
-+            50% {
-+                transform: scale(1.1);
-+                opacity: 0.8;
-+            }
-+        }
-+
-+        @keyframes shimmer {
-+            0%, 100% {
-+                color: var(--dark-color);
-+            }
-+            50% {
-+                color: var(--primary-color);
-+            }
-+        }
-+
-+        .scroll-animate {
-+            opacity: 0;
-+            transform: translateY(30px);
-+            transition: opacity 0.7s ease, transform 0.7s ease;
-+            transition-delay: var(--delay, 0s);
-+        }
-+
-+        .scroll-animate.visible {
-+            opacity: 1;
-+            transform: translateY(0);
-+        }
-+
-+        .category h3 {
-+            position: relative;
-+            display: inline-block;
-+            margin-bottom: 25px;
-+        }
-+
-+        .category h3::after {
-+            content: '';
-+            position: absolute;
-+            left: 0;
-+            bottom: -8px;
-+            width: 60%;
-+            height: 3px;
-+            background: linear-gradient(90deg, var(--primary-color), transparent);
-+        }
-+
-+        .form-control:focus,
-+        textarea:focus {
-+            box-shadow: 0 0 0 0.2rem rgba(78, 87, 212, 0.25);
-+            border-color: var(--primary-color);
-+        }
-+
-         /* Icône profil */
-         .profile-icon {
-             font-size: 8rem;
-             color: var(--primary-color);
-             margin-bottom: 30px;
-+            animation: float 6s ease-in-out infinite;
-         }
--        
-+
-         /* Responsive */
-         @media (max-width: 768px) {
-             .hero h1 {
-                 font-size: 2.5rem;
-             }
-             
-             .hero p {
-                 font-size: 1.2rem;
-             }
-             
-             section {
-                 padding: 60px 0;
-             }
-             
-             .profile-icon {
-                 font-size: 5rem;
-             }
-         }
-         /* Compétences modernes */
- .skill-card {
-     background-color: white;
-     transition: transform 0.3s ease, box-shadow 0.3s ease;
-     border: 2px solid transparent;
- }
- 
- .skill-card:hover {
-     transform: translateY(-10px) scale(1.05);
-     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-     border-color: var(--primary-color);
- }
- 
- .skill-card .icon {
-     transition: transform 0.3s ease;
- }
- 
- .skill-card:hover .icon {
-     transform: rotate(10deg) scale(1.2);
- }
- 
-+.skill-card.scroll-animate {
-+    transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
-+}
-+
-+        @media (prefers-reduced-motion: reduce) {
-+            * {
-+                animation-duration: 0.01ms !important;
-+                animation-iteration-count: 1 !important;
-+                transition-duration: 0.01ms !important;
-+                scroll-behavior: auto !important;
-+            }
-+        }
-+
-     </style>
- </head>
- <body>
-     <!-- Navigation -->
-     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-         <div class="container">
-             <a class="navbar-brand" href="#">Yoann Tournal</a>
-             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
-             </button>
-             <div class="collapse navbar-collapse" id="navbarNav">
-                 <ul class="navbar-nav ms-auto">
-                     <li class="nav-item">
-                         <a class="nav-link" href="#accueil">Accueil</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#apropos">À propos</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#competences">Compétences</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#projets">Projets</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#experience">Expérience</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#contact">Contact</a>
-                     </li>
-                 </ul>
-             </div>
-         </div>
-     </nav>
- 
-     <!-- Hero Section -->
-     <section id="accueil" class="hero">
--        <div class="container">
--            <div class="row">
--                <div class="col-lg-12">
--                    <div class="profile-icon">
-+        <span class="floating-shape shape-1" aria-hidden="true"></span>
-+        <span class="floating-shape shape-2" aria-hidden="true"></span>
-+        <span class="floating-shape shape-3" aria-hidden="true"></span>
-+        <div class="container position-relative">
-+            <div class="row justify-content-center">
-+                <div class="col-lg-10">
-+                    <div class="profile-icon scroll-animate" data-animate-delay="0.1s">
-                         <i class="fas fa-user-circle"></i>
-                     </div>
--                    <h1>Yoann Tournal</h1>
--                    <p>Étudiant en Systèmes Numériques</p>
--                    <a href="#contact" class="btn btn-light btn-lg">Me contacter</a>
--                    <a href="#" class="btn btn-outline-light btn-lg ms-3" id="downloadCV">Télécharger mon CV</a>
-+                    <h1 class="scroll-animate" data-animate-delay="0.2s">Yoann Tournal</h1>
-+                    <p class="scroll-animate" data-animate-delay="0.3s">Étudiant en Systèmes Numériques</p>
-+                    <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-+                        <a href="#contact" class="btn btn-light btn-lg btn-glow scroll-animate" data-animate-delay="0.4s">Me contacter</a>
-+                        <a href="#" class="btn btn-outline-light btn-lg ms-lg-3 scroll-animate" data-animate-delay="0.5s" id="downloadCV">Télécharger mon CV</a>
-+                    </div>
-                 </div>
-             </div>
-         </div>
-     </section>
- 
-     <!-- About Section -->
-     <section id="apropos">
-         <div class="container">
--            <div class="section-title">
-+            <div class="section-title scroll-animate" data-animate-delay="0.1s">
-                 <h2>À propos de moi</h2>
-             </div>
-             <div class="row justify-content-center">
-                 <div class="col-lg-8">
--                    <h3 class="text-center mb-4">Étudiant passionné par les systèmes numériques</h3>
--                    <p class="text-center">Je suis actuellement en formation dans le domaine des systèmes numériques, avec pour objectif de poursuivre mes études dans ce secteur en constante évolution.</p>
--                    <p class="text-center">Mes différentes expériences professionnelles m'ont permis de développer des compétences techniques solides ainsi qu'un sens des responsabilités et du travail en équipe.</p>
-+                    <h3 class="text-center mb-4 scroll-animate" data-animate-delay="0.2s">Étudiant passionné par les systèmes numériques</h3>
-+                    <p class="text-center scroll-animate" data-animate-delay="0.3s">Je suis actuellement en formation dans le domaine des systèmes numériques, avec pour objectif de poursuivre mes études dans ce secteur en constante évolution.</p>
-+                    <p class="text-center scroll-animate" data-animate-delay="0.4s">Mes différentes expériences professionnelles m'ont permis de développer des compétences techniques solides ainsi qu'un sens des responsabilités et du travail en équipe.</p>
-                     <div class="row mt-5">
--                        <div class="col-md-6">
-+                        <div class="col-md-6 scroll-animate" data-animate-delay="0.5s">
-                             <ul class="list-unstyled">
-                                 <li><strong>Email :</strong> tournalyoann1@gmail.com</li>
-                                 <li><strong>Téléphone :</strong> 06 44 87 08 82</li>
-                                 <li><strong>Ville :</strong> Gap, France</li>
-                             </ul>
-                         </div>
--                        <div class="col-md-6">
-+                        <div class="col-md-6 scroll-animate" data-animate-delay="0.6s">
-                             <ul class="list-unstyled">
-                                 <li><strong>Disponibilité :</strong> Immédiate</li>
--                                <li><strong>Langues :</strong> Français</li>     
-+                                <li><strong>Langues :</strong> Français</li>
-                             </ul>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </section>
- 
-     <!-- Skills Section -->
- <section id="competences" class="bg-light">
-     <div class="container">
--        <div class="section-title"><h2>Mes compétences</h2></div>
-+        <div class="section-title scroll-animate" data-animate-delay="0.1s"><h2>Mes compétences</h2></div>
-         <div class="row gy-4">
-             <!-- Compétence 1 -->
-             <div class="col-md-6 col-lg-3">
--                <div class="skill-card text-center shadow p-4 rounded h-100">
-+                <div class="skill-card text-center shadow p-4 rounded h-100 scroll-animate" data-animate-delay="0.2s">
-                     <div class="icon mb-3 text-primary">
-                         <i class="fas fa-desktop fa-3x"></i>
-                     </div>
-                     <h5>Informatique niveau 1</h5>
-                     <p class="text-muted">Montage PC et installation d'OS Windows/Linux</p>
-                 </div>
-             </div>
- 
-             <!-- Compétence 2 -->
-             <div class="col-md-6 col-lg-3">
--                <div class="skill-card text-center shadow p-4 rounded h-100">
-+                <div class="skill-card text-center shadow p-4 rounded h-100 scroll-animate" data-animate-delay="0.3s">
-                     <div class="icon mb-3 text-success">
-                         <i class="fas fa-server fa-3x"></i>
-                     </div>
-                     <h5>Serveurs Debian</h5>
-                     <p class="text-muted">Samba, FOG, FTP...</p>
-                 </div>
-             </div>
- 
-             <!-- Compétence 3 -->
-             <div class="col-md-6 col-lg-3">
--                <div class="skill-card text-center shadow p-4 rounded h-100">
-+                <div class="skill-card text-center shadow p-4 rounded h-100 scroll-animate" data-animate-delay="0.4s">
-                     <div class="icon mb-3 text-warning">
-                         <i class="fas fa-cloud fa-3x"></i>
-                     </div>
-                     <h5>Hyperviseur</h5>
-                     <p class="text-muted">Proxmox</p>
-                 </div>
-             </div>
- 
-             <!-- Compétence 4 -->
-             <div class="col-md-6 col-lg-3">
--                <div class="skill-card text-center shadow p-4 rounded h-100">
-+                <div class="skill-card text-center shadow p-4 rounded h-100 scroll-animate" data-animate-delay="0.5s">
-                     <div class="icon mb-3 text-danger">
-                         <i class="fas fa-network-wired fa-3x"></i>
-                     </div>
-                     <h5>Configuration Switch L2</h5>
-                     <p class="text-muted">Cisco, Netgear, HP</p>
-                 </div>
-             </div>
-         </div>
-     </div>
- </section>
- 
- 
-     <!-- Projects Section -->
- <section id="projets">
-   <div class="container">
--    <div class="section-title">
-+    <div class="section-title scroll-animate" data-animate-delay="0.1s">
-       <h2>Mes documents</h2>
-     </div>
-     
-     <!-- Madame Beauvallet -->
--    <div class="category">
-+    <div class="category scroll-animate" data-animate-delay="0.2s">
-       <h3>Madame Beauvallet</h3>
-       <div class="row">
-         <!-- PDF jeux -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoann Tournal - Portfolio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4e57d4;
+            --secondary-color: #6c757d;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+            --accent-color: #17a2b8;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            color: var(--dark-color);
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #4e57d4 0%, #6a11cb 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3a42b8;
+            border-color: #3a42b8;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-weight: 700;
+            color: var(--dark-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-item {
+            margin-bottom: 25px;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        .project-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .experience-item {
+            border-left: 2px solid var(--primary-color);
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            left: -9px;
+            top: 5px;
+        }
+        
+        .experience-date {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background-color: var(--dark-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        /* Icône profil */
+        .profile-icon {
+            font-size: 8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .profile-icon {
+                font-size: 5rem;
+            }
+        }
+        /* Compétences modernes */
+.skill-card {
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.skill-card .icon {
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover .icon {
+    transform: rotate(10deg) scale(1.2);
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Yoann Tournal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#apropos">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#competences">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projets">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Expérience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="profile-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h1>Yoann Tournal</h1>
+                    <p>Étudiant en Systèmes Numériques</p>
+                    <a href="#contact" class="btn btn-light btn-lg">Me contacter</a>
+                    <a href="#" class="btn btn-outline-light btn-lg ms-3" id="downloadCV">Télécharger mon CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos">
+        <div class="container">
+            <div class="section-title">
+                <h2>À propos de moi</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h3 class="text-center mb-4">Étudiant passionné par les systèmes numériques</h3>
+                    <p class="text-center">Je suis actuellement en formation dans le domaine des systèmes numériques, avec pour objectif de poursuivre mes études dans ce secteur en constante évolution.</p>
+                    <p class="text-center">Mes différentes expériences professionnelles m'ont permis de développer des compétences techniques solides ainsi qu'un sens des responsabilités et du travail en équipe.</p>
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><strong>Email :</strong> tournalyoann1@gmail.com</li>
+                                <li><strong>Téléphone :</strong> 06 44 87 08 82</li>
+                                <li><strong>Ville :</strong> Gap, France</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><strong>Disponibilité :</strong> Immédiate</li>
+                                <li><strong>Langues :</strong> Français</li>     
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+<section id="competences" class="bg-light">
+    <div class="container">
+        <div class="section-title"><h2>Mes compétences</h2></div>
+        <div class="row gy-4">
+            <!-- Compétence 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card text-center shadow p-4 rounded h-100">
+                    <div class="icon mb-3 text-primary">
+                        <i class="fas fa-desktop fa-3x"></i>
+                    </div>
+                    <h5>Informatique niveau 1</h5>
+                    <p class="text-muted">Montage PC et installation d'OS Windows/Linux</p>
+                </div>
+            </div>
+
+            <!-- Compétence 2 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card text-center shadow p-4 rounded h-100">
+                    <div class="icon mb-3 text-success">
+                        <i class="fas fa-server fa-3x"></i>
+                    </div>
+                    <h5>Serveurs Debian</h5>
+                    <p class="text-muted">Samba, FOG, FTP...</p>
+                </div>
+            </div>
+
+            <!-- Compétence 3 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card text-center shadow p-4 rounded h-100">
+                    <div class="icon mb-3 text-warning">
+                        <i class="fas fa-cloud fa-3x"></i>
+                    </div>
+                    <h5>Hyperviseur</h5>
+                    <p class="text-muted">Proxmox</p>
+                </div>
+            </div>
+
+            <!-- Compétence 4 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card text-center shadow p-4 rounded h-100">
+                    <div class="icon mb-3 text-danger">
+                        <i class="fas fa-network-wired fa-3x"></i>
+                    </div>
+                    <h5>Configuration Switch L2</h5>
+                    <p class="text-muted">Cisco, Netgear, HP</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Projects Section -->
+<section id="projets">
+  <div class="container">
+    <div class="section-title">
+      <h2>Mes documents</h2>
+    </div>
+    
+    <!-- Madame Beauvallet -->
+    <div class="category">
+      <h3>Madame Beauvallet</h3>
+      <div class="row">
+        <!-- PDF jeux -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>Jeux Labyrinthe sur le site studio.code.org</p>
+            <a href="tp1.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- PDF portfolio -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>Création de mon portfolio</p>
+            <a href="tp2.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+           <!-- PDF java -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>Mes premier pas en Java</p>
+            <a href="tp5 java.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+            <!-- PDF html -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>Le HTML</p>
+            <a href="tp6 html.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+           <!-- PDF tp java 2 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>Java 2</p>
+            <a href="Java.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+             <!-- PDF tp css -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>Le CSS</p>
+            <a href="tp css.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
          <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.25s">
-             <h4>Compte rendu d'activité</h4>
-             <p>Jeux Labyrinthe sur le site studio.code.org</p>
-             <a href="tp1.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
- 
-         <!-- PDF portfolio -->
-         <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.3s">
-             <h4>Compte rendu d'activité</h4>
-             <p>Création de mon portfolio</p>
-             <a href="tp2.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
-            <!-- PDF java -->
-         <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.35s">
-             <h4>Compte rendu d'activité</h4>
-             <p>Mes premier pas en Java</p>
-             <a href="tp5 java.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
-             <!-- PDF html -->
-         <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.4s">
-             <h4>Compte rendu d'activité</h4>
-             <p>Le HTML</p>
-             <a href="tp6 html.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
-            <!-- PDF tp java 2 -->
-         <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.45s">
-             <h4>Compte rendu d'activité</h4>
-             <p>Java 2</p>
-             <a href="Java.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
-              <!-- PDF tp css -->
-         <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.5s">
-             <h4>Compte rendu d'activité</h4>
-             <p>Le CSS</p>
-             <a href="tp css.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Site Chuck</h4>
+            <a href="TD1-Ressources.zip" target="_blank" class="btn btn-primary">
+              📄 Voir le Fichier zip
+            </a>
+          </div>
+        </div>
+          
+                 <!-- PDF tp html/css avancé -->
+
           <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.55s">
-             <h4>Site Chuck</h4>
-             <a href="TD1-Ressources.zip" target="_blank" class="btn btn-primary">
-               📄 Voir le Fichier zip
-             </a>
-           </div>
-         </div>
-           
-                  <!-- PDF tp html/css avancé -->
- 
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>HTML/CSS Avancé</p>
+            <a href="ccs_html_avancé.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+                           <!-- PDF tp bloc 3 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>TP1_bloc_3</p>
+            <a href="TP1_bloc_3.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+
+       <!-- PDF tp java 2 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>TP Shifumi</p>
+            <a href="tp_shifumi.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     
+
+    <!-- Monsieur Sotoca -->
+    <div class="category mt-5">
+      <h3>Monsieur Sotoca</h3>
+      <div class="row">
+        <!-- PDF Initiation au réseau -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>Initiation au réseau</p>
+            <a href="tp3.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+          <!-- PDF logiciel de diag -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>les logiciels de diagnotic</p>
+            <a href="tp4.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+           <!-- PDF documentation capture d'écran -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>documentation logiciel de captures d'écran</p>
+            <a href="tp7.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+        <!-- serveur nas -->
            <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.6s">
-             <h4>Compte rendu d'activité</h4>
-             <p>HTML/CSS Avancé</p>
-             <a href="ccs_html_avancé.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
-                            <!-- PDF tp bloc 3 -->
-         <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.65s">
-             <h4>Compte rendu d'activité</h4>
-             <p>TP1_bloc_3</p>
-             <a href="TP1_bloc_3.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
- 
-        <!-- PDF tp java 2 -->
-         <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.7s">
-             <h4>Compte rendu d'activité</h4>
-             <p>TP Shifumi</p>
-             <a href="tp_shifumi.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
-       </div>
-     </div>
- 
-      
- 
-     <!-- Monsieur Sotoca -->
--    <div class="category mt-5">
-+    <div class="category mt-5 scroll-animate" data-animate-delay="0.4s">
-       <h3>Monsieur Sotoca</h3>
-       <div class="row">
-         <!-- PDF Initiation au réseau -->
-         <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.45s">
-             <h4>Compte rendu d'activité</h4>
-             <p>Initiation au réseau</p>
-             <a href="tp3.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
-           <!-- PDF logiciel de diag -->
-         <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.5s">
-             <h4>Compte rendu d'activité</h4>
-             <p>les logiciels de diagnotic</p>
-             <a href="tp4.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
-            <!-- PDF documentation capture d'écran -->
-         <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.55s">
-             <h4>Compte rendu d'activité</h4>
-             <p>documentation logiciel de captures d'écran</p>
-             <a href="tp7.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
-         <!-- serveur nas -->
-            <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.6s">
-             <h4>Compte rendu d'activité</h4>
-             <p>TP LE SERVEUR NAS</p>
-             <a href="b3_tp1_sotoca.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
-              <!-- commande cmd -->
-            <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.65s">
-             <h4>Compte rendu d'activité</h4>
-             <p>Commande cmd</p>
-             <a href="commandes_cmd.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
-            <!-- commande cmd -->
-            <div class="col-lg-4 col-md-6">
--          <div class="project-card p-4 shadow-sm rounded text-center">
-+          <div class="project-card p-4 shadow-sm rounded text-center scroll-animate" data-animate-delay="0.7s">
-             <h4>Compte rendu d'activité</h4>
-             <p>TP TechCorp</p>
-             <a href="tp_TechCorp.pdf" target="_blank" class="btn btn-primary">
-               📄 Voir le PDF
-             </a>
-           </div>
-         </div>
-       </div>
-     </div>
- 
-   </div>
- </section>
- 
- 
-     <!-- Experience Section -->
-     <section id="experience" class="bg-light">
-         <div class="container">
--            <div class="section-title">
-+            <div class="section-title scroll-animate" data-animate-delay="0.1s">
-                 <h2>Mon expérience</h2>
-             </div>
-             <div class="row">
-                 <div class="col-lg-12">
--                    <div class="experience-item">
-+                    <div class="experience-item scroll-animate" data-animate-delay="0.2s">
-                         <span class="experience-date">2025 - 3 semaines</span>
-                         <h4>Alpes Conseil Informatique Gap</h4>
-                         <p>Stage effectué dans le domaine de l'informatique</p>
-                     </div>
--                    <div class="experience-item">
-+                    <div class="experience-item scroll-animate" data-animate-delay="0.3s">
-                         <span class="experience-date">2024 - 3 semaines</span>
-                         <h4>Collège/Lycée Saint-Joseph Gap</h4>
-                         <p>Stage effectué dans le domaine de l'informatique</p>
-                     </div>
--                    <div class="experience-item">
-+                    <div class="experience-item scroll-animate" data-animate-delay="0.4s">
-                         <span class="experience-date">2023 - 4 semaines</span>
-                         <h4>LDI Rousset</h4>
-                         <p>Stage effectué dans le domaine de l'informatique</p>
-                     </div>
--                    <div class="experience-item">
-+                    <div class="experience-item scroll-animate" data-animate-delay="0.5s">
-                         <span class="experience-date">2022 - 3 semaines</span>
-                         <h4>NLJPC Gap</h4>
-                         <p>Stage effectué dans le domaine de l'informatique</p>
-                     </div>
--                    <div class="experience-item">
-+                    <div class="experience-item scroll-animate" data-animate-delay="0.6s">
-                         <span class="experience-date">2022 - 3 semaines</span>
-                         <h4>Allemand Électricité</h4>
-                         <p>Stage effectué dans le domaine de l'électricité</p>
-                     </div>
--                    <div class="experience-item">
-+                    <div class="experience-item scroll-animate" data-animate-delay="0.7s">
-                         <span class="experience-date">2021 - 1 semaine</span>
-                         <h4>Instore Solution Gap</h4>
-                         <p>Stage effectué dans le domaine de l'informatique</p>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </section>
- 
-     <!-- Education Section -->
-     <section id="education">
-         <div class="container">
--            <div class="section-title">
-+            <div class="section-title scroll-animate" data-animate-delay="0.1s">
-                 <h2>Formation</h2>
-             </div>
-             <div class="row">
-                 <div class="col-lg-12">
--                    <div class="experience-item">
-+                    <div class="experience-item scroll-animate" data-animate-delay="0.2s">
-                         <span class="experience-date">2022-2025</span>
-                         <h4>Lycée Pierre Mendès France, Veynes</h4>
-                         <p>Bac pro Système Numérique</p>
-                     </div>
--                    <div class="experience-item">
-+                    <div class="experience-item scroll-animate" data-animate-delay="0.3s">
-                         <span class="experience-date">2018-2022</span>
-                         <h4>Collège Marcel André Seyne</h4>
-                         <p>Brevet des Collèges</p>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </section>
- 
-     <!-- Contact Section -->
-     <section id="contact" class="bg-light">
-         <div class="container">
--            <div class="section-title">
-+            <div class="section-title scroll-animate" data-animate-delay="0.1s">
-                 <h2>Contactez-moi</h2>
-             </div>
-             <div class="row">
-                 <div class="col-lg-4">
--                    <div class="contact-info">
-+                    <div class="contact-info scroll-animate" data-animate-delay="0.2s">
-                         <div class="contact-icon">
-                             <i class="fas fa-envelope"></i>
-                         </div>
-                         <h4>Email</h4>
-                         <p>tournalyoann1@gmail.com</p>
-                     </div>
-                 </div>
-                 <div class="col-lg-4">
--                    <div class="contact-info">
-+                    <div class="contact-info scroll-animate" data-animate-delay="0.3s">
-                         <div class="contact-icon">
-                             <i class="fas fa-phone"></i>
-                         </div>
-                         <h4>Téléphone</h4>
-                         <p>06 44 87 08 82</p>
-                     </div>
-                 </div>
-                 <div class="col-lg-4">
--                    <div class="contact-info">
-+                    <div class="contact-info scroll-animate" data-animate-delay="0.4s">
-                         <div class="contact-icon">
-                             <i class="fas fa-map-marker-alt"></i>
-                         </div>
-                         <h4>Localisation</h4>
-                         <p>Gap, France</p>
-                     </div>
-                 </div>
-             </div>
-             <div class="row mt-5">
-                 <div class="col-lg-12">
--                    <form id="contactForm">
-+                    <form id="contactForm" class="scroll-animate" data-animate-delay="0.5s">
-                         <div class="row">
-                             <div class="col-md-6">
-                                 <div class="form-group">
-                                     <input type="text" class="form-control" placeholder="Votre nom" required>
-                                 </div>
-                             </div>
-                             <div class="col-md-6">
-                                 <div class="form-group">
-                                     <input type="email" class="form-control" placeholder="Votre email" required>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="form-group mt-3">
-                             <input type="text" class="form-control" placeholder="Sujet" required>
-                         </div>
-                         <div class="form-group mt-3">
-                             <textarea class="form-control" rows="5" placeholder="Votre message" required></textarea>
-                         </div>
-                         <div class="text-center mt-4">
-                             <button type="submit" class="btn btn-primary">Envoyer le message</button>
-                         </div>
-                     </form>
-                 </div>
-             </div>
-         </div>
-     </section>
- 
-     <!-- Social Links -->
-     <div class="py-5 bg-primary text-white">
-         <div class="container text-center">
--            <h3 class="mb-4">Suivez-moi sur les réseaux sociaux</h3>
--            <div class="social-links">
-+            <h3 class="mb-4 scroll-animate" data-animate-delay="0.1s">Suivez-moi sur les réseaux sociaux</h3>
-+            <div class="social-links scroll-animate" data-animate-delay="0.2s">
-                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                 <a href="#"><i class="fab fa-github"></i></a>
-                 <a href="#"><i class="fab fa-twitter"></i></a>
-                 <a href="#"><i class="fab fa-instagram"></i></a>
-             </div>
-         </div>
-     </div>
- 
-     <!-- Footer -->
-     <footer>
-         <div class="container">
--            <p>&copy; 2023 Yoann Tournal. Tous droits réservés.</p>
-+            <p class="scroll-animate" data-animate-delay="0.1s">&copy; 2023 Yoann Tournal. Tous droits réservés.</p>
-         </div>
-     </footer>
- 
-     <!-- Project Modals -->
-     <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
-         <div class="modal-dialog modal-lg">
-             <div class="modal-content">
-                 <div class="modal-header">
-                     <h5 class="modal-title">Site E-commerce</h5>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                 </div>
-                 <div class="modal-body">
-                     <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="img-fluid mb-3" alt="Projet développement web">
-                     <p>Développement d'une plateforme e-commerce complète avec les fonctionnalités suivantes :</p>
-                     <ul>
-                         <li>Interface responsive et moderne</li>
-                         <li>Gestion des produits et catégories</li>
-                         <li>Panier d'achat et processus de commande</li>
-                         <li>Système de paiement sécurisé</li>
-                         <li>Espace client avec historique des commandes</li>
-                     </ul>
-                     <p><strong>Technologies utilisées :</strong> HTML, CSS, JavaScript, PHP, MySQL</p>
-                 </div>
-             </div>
-         </div>
-diff --git a/index.html b/index.html
-index 309d2a4352fd491e4b4ca8194cad69b1e7382188..e854f94a3bff410fe755cda83d6c1a9b93704b21 100644
---- a/index.html
-+++ b/index.html
-@@ -813,66 +1042,89 @@
-         <div class="modal-dialog modal-lg">
-             <div class="modal-content">
-                 <div class="modal-header">
-                     <h5 class="modal-title">Réseau Local Entreprise</h5>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                 </div>
-                 <div class="modal-body">
-                     <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80" class="img-fluid mb-3" alt="Projet réseau">
-                     <p>Mise en place d'un réseau local sécurisé pour une PME avec les caractéristiques suivantes :</p>
-                     <ul>
-                         <li>Architecture réseau robuste et scalable</li>
-                         <li>Système de sécurité avec pare-feu et VLAN</li>
-                         <li>Gestion centralisée des utilisateurs et des accès</li>
-                         <li>Système de sauvegarde automatisé</li>
-                         <li>Surveillance et maintenance proactive</li>
-                     </ul>
-                     <p><strong>Technologies utilisées :</strong> Cisco, Windows Server, Active Directory, VPN</p>
-                 </div>
-             </div>
-         </div>
-     </div>
- 
-     <!-- Bootstrap & JavaScript -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-     <script>
--        // Téléchargement du CV
--        document.getElementById('downloadCV').addEventListener('click', function(e) {
--            e.preventDefault();
--            
--            // Créer un lien de téléchargement
--            const link = document.createElement('a');
--            link.href = 'mon_cv.pdf'; // Remplacez par le chemin réel de votre CV
--            link.download = 'mon_cv.pdf';
--            document.body.appendChild(link);
--            link.click();
--            document.body.removeChild(link);
--        });
-+        document.addEventListener('DOMContentLoaded', () => {
-+            const downloadBtn = document.getElementById('downloadCV');
-+            const navbar = document.querySelector('.navbar');
-+            const animateElements = document.querySelectorAll('.scroll-animate');
-+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- 
--        // Animation au défilement
--        document.addEventListener('DOMContentLoaded', function() {
--            const sections = document.querySelectorAll('section');
--            
--            const observer = new IntersectionObserver((entries) => {
--                entries.forEach(entry => {
--                    if (entry.isIntersecting) {
--                        entry.target.classList.add('fade-in');
--                    }
-+            if (downloadBtn) {
-+                downloadBtn.addEventListener('click', (e) => {
-+                    e.preventDefault();
-+                    const link = document.createElement('a');
-+                    link.href = 'mon_cv.pdf';
-+                    link.download = 'mon_cv.pdf';
-+                    document.body.appendChild(link);
-+                    link.click();
-+                    link.remove();
-                 });
--            }, {
--                threshold: 0.1
--            });
--            
--            sections.forEach(section => {
--                observer.observe(section);
--            });
--            
--            // Gestion de l'envoi du formulaire
--            document.getElementById('contactForm').addEventListener('submit', function(e) {
--                e.preventDefault();
--                alert('Merci pour votre message ! Je vous répondrai très rapidement.');
--                this.reset();
--            });
-+
-+                setTimeout(() => downloadBtn.classList.add('btn-glow'), 1200);
-+            }
-+
-+            const updateNavbarState = () => {
-+                if (!navbar) return;
-+                if (window.scrollY > 50) {
-+                    navbar.classList.add('scrolled');
-+                } else {
-+                    navbar.classList.remove('scrolled');
-+                }
-+            };
-+
-+            updateNavbarState();
-+            window.addEventListener('scroll', updateNavbarState, { passive: true });
-+
-+            if (!prefersReducedMotion && 'IntersectionObserver' in window) {
-+                const observer = new IntersectionObserver((entries, obs) => {
-+                    entries.forEach(entry => {
-+                        if (entry.isIntersecting) {
-+                            const delay = entry.target.getAttribute('data-animate-delay') || '0s';
-+                            entry.target.style.setProperty('--delay', delay);
-+                            entry.target.classList.add('visible');
-+                            obs.unobserve(entry.target);
-+                        }
-+                    });
-+                }, {
-+                    threshold: 0.15,
-+                    rootMargin: '0px 0px -80px 0px'
-+                });
-+
-+                animateElements.forEach(el => observer.observe(el));
-+            } else {
-+                animateElements.forEach(el => el.classList.add('visible'));
-+            }
-+
-+            const contactForm = document.getElementById('contactForm');
-+            if (contactForm) {
-+                contactForm.addEventListener('submit', (e) => {
-+                    e.preventDefault();
-+                    alert('Merci pour votre message ! Je vous répondrai très rapidement.');
-+                    contactForm.reset();
-+                });
-+            }
-         });
-     </script>
- </body>
- </html>
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>TP LE SERVEUR NAS</p>
+            <a href="b3_tp1_sotoca.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+             <!-- commande cmd -->
+           <div class="col-lg-4 col-md-6">
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>Commande cmd</p>
+            <a href="commandes_cmd.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+           <!-- commande cmd -->
+           <div class="col-lg-4 col-md-6">
+          <div class="project-card p-4 shadow-sm rounded text-center">
+            <h4>Compte rendu d'activité</h4>
+            <p>TP TechCorp</p>
+            <a href="tp_TechCorp.pdf" target="_blank" class="btn btn-primary">
+              📄 Voir le PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- Experience Section -->
+    <section id="experience" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mon expérience</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="experience-item">
+                        <span class="experience-date">2025 - 3 semaines</span>
+                        <h4>Alpes Conseil Informatique Gap</h4>
+                        <p>Stage effectué dans le domaine de l'informatique</p>
+                    </div>
+                    <div class="experience-item">
+                        <span class="experience-date">2024 - 3 semaines</span>
+                        <h4>Collège/Lycée Saint-Joseph Gap</h4>
+                        <p>Stage effectué dans le domaine de l'informatique</p>
+                    </div>
+                    <div class="experience-item">
+                        <span class="experience-date">2023 - 4 semaines</span>
+                        <h4>LDI Rousset</h4>
+                        <p>Stage effectué dans le domaine de l'informatique</p>
+                    </div>
+                    <div class="experience-item">
+                        <span class="experience-date">2022 - 3 semaines</span>
+                        <h4>NLJPC Gap</h4>
+                        <p>Stage effectué dans le domaine de l'informatique</p>
+                    </div>
+                    <div class="experience-item">
+                        <span class="experience-date">2022 - 3 semaines</span>
+                        <h4>Allemand Électricité</h4>
+                        <p>Stage effectué dans le domaine de l'électricité</p>
+                    </div>
+                    <div class="experience-item">
+                        <span class="experience-date">2021 - 1 semaine</span>
+                        <h4>Instore Solution Gap</h4>
+                        <p>Stage effectué dans le domaine de l'informatique</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Formation</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="experience-item">
+                        <span class="experience-date">2022-2025</span>
+                        <h4>Lycée Pierre Mendès France, Veynes</h4>
+                        <p>Bac pro Système Numérique</p>
+                    </div>
+                    <div class="experience-item">
+                        <span class="experience-date">2018-2022</span>
+                        <h4>Collège Marcel André Seyne</h4>
+                        <p>Brevet des Collèges</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-moi</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <p>tournalyoann1@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Téléphone</h4>
+                        <p>06 44 87 08 82</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Localisation</h4>
+                        <p>Gap, France</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Votre nom" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Votre email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control" placeholder="Sujet" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea class="form-control" rows="5" placeholder="Votre message" required></textarea>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Links -->
+    <div class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h3 class="mb-4">Suivez-moi sur les réseaux sociaux</h3>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Yoann Tournal. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Project Modals -->
+    <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Site E-commerce</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="img-fluid mb-3" alt="Projet développement web">
+                    <p>Développement d'une plateforme e-commerce complète avec les fonctionnalités suivantes :</p>
+                    <ul>
+                        <li>Interface responsive et moderne</li>
+                        <li>Gestion des produits et catégories</li>
+                        <li>Panier d'achat et processus de commande</li>
+                        <li>Système de paiement sécurisé</li>
+                        <li>Espace client avec historique des commandes</li>
+                    </ul>
+                    <p><strong>Technologies utilisées :</strong> HTML, CSS, JavaScript, PHP, MySQL</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Système Domotique</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="img-fluid mb-3" alt="Projet automatisation">
+                    <p>Conception et installation d'un système domotique pour la gestion énergétique d'un habitat incluant :</p>
+                    <ul>
+                        <li>Contrôle de l'éclairage et du chauffage</li>
+                        <li>Gestion des appareils électriques</li>
+                        <li>Surveillance à distance</li>
+                        <li>Optimisation de la consommation énergétique</li>
+                        <li>Interface de contrôle intuitive</li>
+                    </ul>
+                    <p><strong>Technologies utilisées :</strong> Arduino, Raspberry Pi, Python, Capteurs IoT</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Réseau Local Entreprise</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80" class="img-fluid mb-3" alt="Projet réseau">
+                    <p>Mise en place d'un réseau local sécurisé pour une PME avec les caractéristiques suivantes :</p>
+                    <ul>
+                        <li>Architecture réseau robuste et scalable</li>
+                        <li>Système de sécurité avec pare-feu et VLAN</li>
+                        <li>Gestion centralisée des utilisateurs et des accès</li>
+                        <li>Système de sauvegarde automatisé</li>
+                        <li>Surveillance et maintenance proactive</li>
+                    </ul>
+                    <p><strong>Technologies utilisées :</strong> Cisco, Windows Server, Active Directory, VPN</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Téléchargement du CV
+        document.getElementById('downloadCV').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Créer un lien de téléchargement
+            const link = document.createElement('a');
+            link.href = 'mon_cv.pdf'; // Remplacez par le chemin réel de votre CV
+            link.download = 'mon_cv.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        // Animation au défilement
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Gestion de l'envoi du formulaire
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Merci pour votre message ! Je vous répondrai très rapidement.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
