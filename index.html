@@ -287,6 +287,37 @@
     transform: rotate(10deg) scale(1.2);
 }
 
+        /* Style pour la Veille Technologique */
+.veille-card {
+    background-color: white;
+    border-left: 5px solid var(--primary-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.veille-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.veille-card h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.veille-card .date {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
     </style>
 </head>
 <body>
@@ -314,6 +345,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#experience">Expérience</a>
                     </li>
+                    <li class="nav-item">
+                     <a class="nav-link" href="#veille">Veille</a>
+                     </li>
+                     <li class="nav-item">
+                     <a class="nav-link" href="#contact">Contact</a>
+                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
@@ -765,6 +802,86 @@
             </div>
         </div>
     </section>
+    
+    <!-- Contact veille -->
+
+    <section id="veille">
+    <div class="container">
+        <div class="section-title">
+            <h2>Veille Technologique 🤖</h2>
+        </div>
+        <div class="row gy-4">
+            
+            <div class="col-lg-6">
+                <div class="veille-card">
+                    <span class="date">Semaine du 30 Septembre au 6 Octobre 2025</span>
+                    <h4>Avancées en dextérité et IA incarnée</h4>
+                    <p>Des chercheurs ont présenté de nouvelles mains robotiques capables de manipuler des objets complexes avec une finesse quasi humaine, utilisant l'IA pour prédire et ajuster la force de préhension en temps réel. Le concept d'IA incarnée gagne du terrain.</p>
+                    <a href="https://www.google.com/search?q=robots+humanoïdes+dextérité+octobre+2025" target="_blank" class="btn btn-sm btn-outline-primary">Lire l'article</a>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="veille-card">
+                    <span class="date">Semaine du 7 au 13 Octobre 2025</span>
+                    <h4>Intégration sur les chaînes de production</h4>
+                    <p>Un grand constructeur automobile a commencé à tester des robots humanoïdes autonomes pour des tâches d'assemblage délicates, soulignant leur capacité à s'adapter rapidement à de nouveaux environnements sans reconfiguration matérielle majeure.</p>
+                    <a href="https://www.google.com/search?q=robots+humanoïdes+production+automobile+octobre+2025" target="_blank" class="btn btn-sm btn-outline-primary">Lire l'article</a>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="veille-card">
+                    <span class="date">Semaine du 14 au 20 Octobre 2025</span>
+                    <h4>Le débat sur l'éthique et la sécurité</h4>
+                    <p>Suite à une conférence mondiale, un consensus se dessine sur la nécessité de standards de sécurité plus stricts pour les interactions homme-robot. Les discussions portent sur les limites de l'autonomie et l'obligation de "boutons d'arrêt d'urgence" universels.</p>
+                    <a href="https://www.google.com/search?q=robots+humanoïdes+éthique+sécurité+octobre+2025" target="_blank" class="btn btn-sm btn-outline-primary">Lire l'article</a>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="veille-card">
+                    <span class="date">Semaine du 21 au 27 Octobre 2025</span>
+                    <h4>Nouvelle génération de batteries flexibles</h4>
+                    <p>Des chercheurs en matériaux ont annoncé une percée dans le développement de batteries lithium-ion plus légères et flexibles, permettant aux humanoïdes d'avoir des mouvements plus fluides et d'augmenter significativement leur temps d'opération.</p>
+                    <a href="https://www.google.com/search?q=robots+humanoïdes+batteries+flexibles+octobre+2025" target="_blank" class="btn btn-sm btn-outline-primary">Lire l'article</a>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="veille-card">
+                    <span class="date">Semaine du 28 Octobre au 3 Novembre 2025</span>
+                    <h4>Optimisation des systèmes de vision 3D</h4>
+                    <p>Amélioration des algorithmes de perception permettant aux humanoïdes d'interpréter des environnements encombrés et dynamiques avec une précision accrue, essentielle pour la navigation en milieu non structuré (comme les domiciles privés).</p>
+                    <a href="https://www.google.com/search?q=robots+humanoïdes+systèmes+vision+novembre+2025" target="_blank" class="btn btn-sm btn-outline-primary">Lire l'article</a>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="veille-card">
+                    <span class="date">Semaine du 4 au 10 Novembre 2025</span>
+                    <h4>Adoption en logistique et entrepôts</h4>
+                    <p>Plusieurs entreprises de logistique ont annoncé l'intégration pilote de flottes de robots humanoïdes pour la gestion des stocks et la préparation de commandes, citant leur polyvalence supérieure aux AGVs (Automated Guided Vehicles) traditionnels.</p>
+                    <a href="https://www.google.com/search?q=robots+humanoïdes+logistique+entrepôt+novembre+2025" target="_blank" class="btn btn-sm btn-outline-primary">Lire l'article</a>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="veille-card">
+                    <span class="date">Semaine du 11 au 17 Novembre 2025</span>
+                    <h4>Progrès en apprentissage par renforcement</h4>
+                    <p>Les modèles d'apprentissage par renforcement sim-to-real (de la simulation à la réalité) ont permis aux humanoïdes d'acquérir de nouvelles compétences motrices plus rapidement, réduisant le temps de formation en environnement réel.</p>
+                    <a href="https://www.google.com/search?q=robots+humanoïdes+apprentissage+par+renforcement+novembre+2025" target="_blank" class="btn btn-sm btn-outline-primary">Lire l'article</a>
+                </div>
+            </div>
+            
+        </div>
+        <div class="text-center mt-5">
+            <p class="text-muted">Cette section sera mise à jour chaque semaine avec les dernières avancées dans le domaine de la robotique humanoïde.</p>
+        </div>
+    </div>
+</section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="bg-light">
