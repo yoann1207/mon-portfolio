@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -332,69 +333,96 @@
         </div>
     </section>
 
-    <section id="projets">
-        <div class="container">
-            <div class="section-header"><h2>Bibliothèque</h2><div class="divider"></div></div>
+<section id="projets">
+    <div class="container">
+        <div class="section-header"><h2>Bibliothèque</h2><div class="divider"></div></div>
 
-            <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                <li class="nav-item"><button class="nav-link active" id="pills-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-beauvallet">Madame Beauvallet</button></li>
-                <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-sotoca">Monsieur Sotoca</button></li>
-            </ul>
-      
+        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+            <li class="nav-item"><button class="nav-link" id="pills-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-sotoca">Mr Sotoca</button></li>
+            <li class="nav-item"><button class="nav-link" id="pills-b3-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-b3-sotoca">Bloc 3 Mr Sotoca</button></li>
+            <li class="nav-item"><button class="nav-link" id="pills-atelier-tab" data-bs-toggle="pill" data-bs-target="#pills-atelier">Ateliers</button></li>
+            <li class="nav-item"><button class="nav-link" id="pills-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-beauvallet">Mme Beauvallet</button></li>
+            <li class="nav-item"><button class="nav-link" id="pills-b3-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-b3-beauvallet">Bloc 3 Mme Beauvallet</button></li>
+        </ul>                              
+        
+        <div class="tab-content" id="pills-tabContent">
             
-            
+            <div id="placeholder-msg" class="text-center py-5">
+                <p class="text-gray fs-5"><i class="fas fa-arrow-up me-2"></i> Sélectionnez une catégorie pour afficher les documents</p>
+            </div>
 
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-beauvallet">
-                    <div class="row g-3">
-                        <div class="col-lg-4 col-md-6"><a href="tp1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-gamepad doc-icon"></i><div><div class="doc-title">Jeux Labyrinthe</div><span class="doc-sub">Code.org</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-globe doc-icon"></i><div><div class="doc-title">Portfolio</div><span class="doc-sub">Web Dev</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp5 java.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">Java Intro</div><span class="doc-sub">TP5</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp6 html.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-html5 doc-icon"></i><div><div class="doc-title">HTML Bases</div><span class="doc-sub">TP6</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Java.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">Java 2</div><span class="doc-sub">Avancé</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp css.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-css3-alt doc-icon"></i><div><div class="doc-title">CSS</div><span class="doc-sub">Style</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TD1-Ressources.zip" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-file-archive doc-icon text-warning"></i><div><div class="doc-title">Site Chuck</div><span class="doc-sub">ZIP</span></div></div><i class="fas fa-download text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="ccs_html_avancé.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code doc-icon"></i><div><div class="doc-title">HTML/CSS Avancé</div><span class="doc-sub">Expert</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TP1_bloc_3.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-cube doc-icon"></i><div><div class="doc-title">TP1 Bloc 3</div><span class="doc-sub">Activité</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp_shifumi.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-gamepad doc-icon"></i><div><div class="doc-title">TP Shifumi</div><span class="doc-sub">Jeu Java</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TP_5_JAVA.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">TP 5 JAVA</div><span class="doc-sub">Suite</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="html_css_avancé_p2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code doc-icon"></i><div><div class="doc-title">HTML/CSS P2</div><span class="doc-sub">Avancé 2</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TP_PIA.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-project-diagram doc-icon"></i><div><div class="doc-title">TP PIA</div><span class="doc-sub">Projet</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="PIA_2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-project-diagram doc-icon"></i><div><div class="doc-title">TP PIA 2</div><span class="doc-sub">Projet 2</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="pia yoann.zip" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-file-archive doc-icon text-warning"></i><div><div class="doc-title">ZIP PIA 2</div><span class="doc-sub">Ressources</span></div></div><i class="fas fa-download text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TP_fonctions_et_procédure.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code-branch doc-icon"></i><div><div class="doc-title">Fonctions</div><span class="doc-sub">Algo</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Les_formulaires.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-wpforms doc-icon"></i><div><div class="doc-title">Formulaires</div><span class="doc-sub">Web</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="ch3_tp1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-book doc-icon"></i><div><div class="doc-title">Chapitre 3 TP1</div><span class="doc-sub">CR</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Bataille_navale.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-ship doc-icon"></i><div><div class="doc-title">Bataille Navale</div><span class="doc-sub">Jeu</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="atelier_09_TP1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-laptop-code doc-icon"></i><div><div class="doc-title">Atelier 09 TP1</div><span class="doc-sub">Pratique</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TP_POO..pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-cubes doc-icon"></i><div><div class="doc-title">TP POO</div><span class="doc-sub">Objets</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div><div class="doc-title">TP PHP</div><span class="doc-sub">Back</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="atelier_10_tp2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-laptop-code doc-icon"></i><div><div class="doc-title">Atelier 10 TP2</div><span class="doc-sub">Pratique</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="ch3_tp2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-book-open doc-icon"></i><div><div class="doc-title">TP2 Ch3</div><span class="doc-sub">CR</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Scene-Builder.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-paint-brush doc-icon"></i><div><div class="doc-title">Scene Builder</div><span class="doc-sub">JavaFX</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Javascript1_2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-js doc-icon"></i><div><div class="doc-title">JS 1/2</div><span class="doc-sub">Script</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="AnalyseSI.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-magnifying-glass-chart doc-icon"></i><div class="doc-content"><div class="doc-title">AnalyseSI</div><span class="doc-sub">Modélisation</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>                 
-                        <div class="col-lg-4 col-md-6"><a href="Javascript tp12 .pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-js doc-icon"></i><div class="doc-content"><div class="doc-title">Javascript TP12</div><span class="doc-sub">Atelier 12</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                    </div>
+            <div class="tab-pane fade" id="pills-beauvallet">
+                <div class="row g-3">
+                    <div class="col-lg-4 col-md-6"><a href="tp1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-gamepad doc-icon"></i><div><div class="doc-title">Jeux Labyrinthe</div><span class="doc-sub">Code.org</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="tp5 java.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">Java Intro</div><span class="doc-sub">TP5</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="Java.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">Java 2</div><span class="doc-sub">Avancé</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="tp_shifumi.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-gamepad doc-icon"></i><div><div class="doc-title">TP Shifumi</div><span class="doc-sub">Jeu Java</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="TP_5_JAVA.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">TP 5 JAVA</div><span class="doc-sub">Suite</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="TP_fonctions_et_procédure.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code-branch doc-icon"></i><div><div class="doc-title">Fonctions</div><span class="doc-sub">Algo</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="Bataille_navale.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-ship doc-icon"></i><div><div class="doc-title">Bataille Navale</div><span class="doc-sub">Jeu</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="TP_POO..pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-cubes doc-icon"></i><div><div class="doc-title">TP POO</div><span class="doc-sub">Objets</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div><div class="doc-title">TP PHP</div><span class="doc-sub">Back</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="Scene-Builder.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-paint-brush doc-icon"></i><div><div class="doc-title">Scene Builder</div><span class="doc-sub">JavaFX</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="AnalyseSI.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-magnifying-glass-chart doc-icon"></i><div class="doc-content"><div class="doc-title">AnalyseSI</div><span class="doc-sub">Modélisation</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                 </div>
-    
-                
-                
+            </div>                                    
 
-                <div class="tab-pane fade" id="pills-sotoca">
-                    <div class="row g-3">
-                        <div class="col-lg-4 col-md-6"><a href="tp3.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div><div class="doc-title">Initiation Réseau</div><span class="doc-sub">TP3</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp4.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-tools doc-icon"></i><div><div class="doc-title">Diagnostic</div><span class="doc-sub">TP4</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp7.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-camera doc-icon"></i><div><div class="doc-title">Captures</div><span class="doc-sub">TP7</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="b3_tp1_sotoca.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hdd doc-icon"></i><div><div class="doc-title">Serveur NAS</div><span class="doc-sub">Stockage</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="commandes_cmd.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-terminal doc-icon"></i><div><div class="doc-title">CMD</div><span class="doc-sub">Terminal</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp_TechCorp.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-building doc-icon"></i><div><div class="doc-title">TP TechCorp</div><span class="doc-sub">Projet</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="données_hachées.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-lock doc-icon"></i><div><div class="doc-title">Hachage</div><span class="doc-sub">Sécurité</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                    </div>
+            <div class="tab-pane fade" id="pills-sotoca">
+                <div class="row g-3">
+                    <div class="col-lg-4 col-md-6"><a href="tp3.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div><div class="doc-title">Initiation Réseau</div><span class="doc-sub">TP3</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="tp4.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-tools doc-icon"></i><div><div class="doc-title">Diagnostic</div><span class="doc-sub">TP4</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="tp7.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-camera doc-icon"></i><div><div class="doc-title">Captures</div><span class="doc-sub">TP7</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="commandes_cmd.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-terminal doc-icon"></i><div><div class="doc-title">CMD</div><span class="doc-sub">Terminal</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="tp_TechCorp.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-building doc-icon"></i><div><div class="doc-title">TP TechCorp</div><span class="doc-sub">Projet</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
                 </div>
             </div>
+
+            <div class="tab-pane fade" id="pills-atelier">
+                <div class="row g-3">
+                    <div class="col-lg-4 col-md-6"><a href="tp2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-globe doc-icon"></i><div><div class="doc-title">Portfolio</div><span class="doc-sub">Web Dev</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="tp6 html.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-html5 doc-icon"></i><div><div class="doc-title">HTML Bases</div><span class="doc-sub">TP6</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="tp css.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-css3-alt doc-icon"></i><div><div class="doc-title">CSS</div><span class="doc-sub">Style</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="TD1-Ressources.zip" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-file-archive doc-icon text-warning"></i><div><div class="doc-title">Site Chuck</div><span class="doc-sub">ZIP</span></div></div><i class="fas fa-download text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="ccs_html_avancé.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code doc-icon"></i><div><div class="doc-title">HTML/CSS Avancé</div><span class="doc-sub">Expert</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="html_css_avancé_p2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code doc-icon"></i><div><div class="doc-title">HTML/CSS P2</div><span class="doc-sub">Avancé 2</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="Les_formulaires.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-wpforms doc-icon"></i><div><div class="doc-title">Formulaires</div><span class="doc-sub">Web</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="atelier_09_TP1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-laptop-code doc-icon"></i><div><div class="doc-title">Atelier 09 TP1</div><span class="doc-sub">Pratique</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="atelier_10_tp2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-laptop-code doc-icon"></i><div><div class="doc-title">Atelier 10 TP2</div><span class="doc-sub">Pratique</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="Javascript1_2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-js doc-icon"></i><div><div class="doc-title">JS 1/2</div><span class="doc-sub">Script</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="Javascript tp12 .pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-js doc-icon"></i><div class="doc-content"><div class="doc-title">Javascript TP12</div><span class="doc-sub">Atelier 12</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-b3-beauvallet">
+                <div class="row g-3">
+                    <div class="col-lg-4 col-md-6"><a href="TP1_bloc_3.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-cube doc-icon"></i><div><div class="doc-title">TP1 Bloc 3</div><span class="doc-sub">Activité</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="TP_PIA.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-project-diagram doc-icon"></i><div><div class="doc-title">TP PIA</div><span class="doc-sub">Projet</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="PIA_2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-project-diagram doc-icon"></i><div><div class="doc-title">TP PIA 2</div><span class="doc-sub">Projet 2</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="pia yoann.zip" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-file-archive doc-icon text-warning"></i><div><div class="doc-title">ZIP PIA 2</div><span class="doc-sub">Ressources</span></div></div><i class="fas fa-download text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="ch3_tp1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-book doc-icon"></i><div><div class="doc-title">Chapitre 3 TP1</div><span class="doc-sub">CR</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="ch3_tp2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-book-open doc-icon"></i><div><div class="doc-title">TP2 Ch3</div><span class="doc-sub">CR</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-b3-sotoca">
+                <div class="row g-3">
+                    <div class="col-lg-4 col-md-6"><a href="b3_tp1_sotoca.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hdd doc-icon"></i><div><div class="doc-title">Serveur NAS</div><span class="doc-sub">Stockage</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                    <div class="col-lg-4 col-md-6"><a href="données_hachées.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-lock doc-icon"></i><div><div class="doc-title">Hachage</div><span class="doc-sub">Sécurité</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
+<script>
+    // Script pour cacher le placeholder dès qu'on clique sur un onglet
+    document.querySelectorAll('#pills-tab button').forEach(button => {
+        button.addEventListener('click', () => {
+            document.getElementById('placeholder-msg').style.display = 'none';
+        });
+    });
+</script>           
 
     <section id="experience">
         <div class="container">
