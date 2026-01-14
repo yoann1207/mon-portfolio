@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -522,6 +523,15 @@
         <div class="container">
             <div class="section-header"><h2>Bibliothèque</h2><div class="divider"></div></div>
 
+            <div class="row justify-content-center mb-4">
+    <div class="col-md-6">
+        <div class="input-group shadow-sm" style="border-radius: 50px; overflow: hidden; border: 1px solid var(--border); background: var(--card-bg);">
+            <span class="input-group-text border-0 bg-transparent text-primary"><i class="fas fa-search"></i></span>
+            <input type="text" id="pdfSearch" class="form-control border-0 bg-transparent text-white" placeholder="Rechercher un document (ex: SQL, Java, Réseau...)" style="box-shadow: none;">
+        </div>
+    </div>
+</div>
+
             <ul class="nav nav-pills" id="pills-tab" role="tablist">
                 <li class="nav-item"><button class="nav-link" id="pills-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-sotoca">Mr Sotoca</button></li>
                 <li class="nav-item"><button class="nav-link" id="pills-b3-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-b3-sotoca">Bloc 3 Mr Sotoca</button></li>
@@ -948,6 +958,39 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         });
         reveal();
+
+        // --- FONCTION DE RECHERCHE DANS LES DOCUMENTS ---
+        const searchInput = document.getElementById('pdfSearch');
+        searchInput.addEventListener('keyup', function() {
+            const term = searchInput.value.toLowerCase();
+            const items = document.querySelectorAll('.doc-item'); // On cible toutes les cases de TP
+            const categories = document.querySelectorAll('.tab-pane');
+            const placeholder = document.getElementById('placeholder-msg');
+
+            // Si on commence à chercher, on cache le message "Sélectionnez une catégorie"
+            if (term.length > 0 && placeholder) placeholder.style.display = 'none';
+
+            items.forEach(item => {
+                const title = item.querySelector('.doc-title').textContent.toLowerCase();
+                const sub = item.querySelector('.doc-sub').textContent.toLowerCase();
+                const parentDiv = item.closest('.col-lg-4'); // On prend toute la colonne Bootstrap
+
+                if (title.includes(term) || sub.includes(term)) {
+                    parentDiv.style.display = "block";
+                    // On force l'affichage de la catégorie parente si elle était cachée par les onglets
+                    item.closest('.tab-pane').classList.add('active', 'show');
+                } else {
+                    parentDiv.style.display = "none";
+                }
+            });
+
+            // Si le champ est vidé, on remet le comportement normal des onglets
+            if (term === "") {
+                categories.forEach(cat => cat.classList.remove('active', 'show'));
+                // Optionnel : affiche un onglet par défaut ou le placeholder
+                if (placeholder) placeholder.style.display = 'block';
+            }
+        });
     </script>
 </body>
 </html>
