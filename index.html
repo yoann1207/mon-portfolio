@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,7 +11,6 @@
     <style>
         /* --- 1. CONFIGURATION DES VARIABLES (THEMES) --- */
 
-        /* --- MODE DÉFAUT (Style Cyber/Aurora) --- */
         :root {
             --bg-core: #020408;
             --primary: #38bdf8;   
@@ -29,7 +27,6 @@
             --glow-color: rgba(56, 189, 248, 0.5); 
         }
 
-        /* --- MODE HIVER ❄️ (Actif par défaut) --- */
         body.winter {
             --bg-core: #0f172a;   
             --primary: #bae6fd;   
@@ -46,35 +43,21 @@
             --glow-color: rgba(186, 230, 253, 0.6); 
         }
 
-        /* --- MODE LIGHT "GREY MIX" ☁️ (Anti-yeux rouges) --- */
         body.light {
-            /* Fond Gris Argenté (pas blanc !) */
             --bg-core: #dce3e8;   
-            
-            /* Bleu Pro mais plus sombre pour le contraste */
             --primary: #3b82f6;   
             --secondary: #64748b; 
             --accent: #6366f1;    
-            
-            /* Cartes en Blanc Cassé / Gris Perle (pas blanc pur) */
             --card-bg: #f1f5f9;   
-            
-            --border: #cbd5e1;    /* Bordures grises visibles */
-            
-            /* Texte Gris Anthracite (plus doux que le noir) */
+            --border: #cbd5e1;    
             --text-white: #1e293b; 
             --text-gray: #475569; 
-            
             --navbar-bg: rgba(241, 245, 249, 0.95);
             --btn-main-bg: #3b82f6;
             --btn-main-text: #fff;
-            
-            /* Ombres douces pour détacher les éléments du fond gris */
             --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --glow-color: rgba(59, 130, 246, 0.2); 
         }
-
-        /* --- 2. CSS GÉNÉRAL --- */
 
         html { scroll-behavior: smooth; }
 
@@ -96,7 +79,6 @@
 
         a { text-decoration: none; transition: 0.3s ease; }
 
-        /* --- SWITCHER DE THÈME --- */
         .theme-switcher {
             position: fixed;
             top: 85px; 
@@ -121,9 +103,6 @@
             border-color: var(--primary);
             color: var(--primary);
         }
-        
-        body.light #settings-btn { color: var(--secondary); border-color: #94a3b8; }
-        body.light #settings-btn:hover { color: var(--primary); background: #e2e8f0; }
 
         #theme-menu {
             position: absolute;
@@ -162,7 +141,6 @@
 
         .hidden { display: none !important; }
 
-        /* --- FONDS --- */
         .background-aurora {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
             background: radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.15), transparent 50%),
@@ -208,7 +186,6 @@
             letter-spacing: 1px;
         }
 
-        /* --- NAV --- */
         .navbar {
             background: var(--navbar-bg);
             backdrop-filter: blur(20px);
@@ -221,7 +198,6 @@
         .nav-link { color: var(--text-gray) !important; font-size: 0.9rem; margin: 0 5px; }
         .nav-link:hover { color: var(--primary) !important; }
 
-        /* --- HERO --- */
         .hero {
             min-height: 90vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
@@ -235,11 +211,6 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.2));
         }
-        body.light .hero h1 { 
-            filter: none;
-            background: linear-gradient(to bottom, #334155 0%, #3b82f6 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
         
         .hero-badge {
             font-size: 1.2rem;
@@ -250,11 +221,6 @@
             padding: 12px 30px; border-radius: 50px;
             box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
             min-width: 300px;
-        }
-        body.winter .hero-badge, body.light .hero-badge {
-            background: var(--card-bg);
-            border-color: var(--primary);
-            box-shadow: var(--shadow-card);
         }
 
         .cursor { animation: blink 1s infinite; margin-left: 5px; color: var(--text-white); }
@@ -277,11 +243,7 @@
             border: 1px solid var(--border); 
         }
         .btn-sec:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
-        
-        body.light .btn-sec { color: var(--text-white); border-color: var(--secondary); background: var(--secondary); }
-        body.light .btn-sec:hover { color: #fff; background: var(--primary); border-color: var(--primary); }
 
-        /* --- SECTIONS --- */
         section { padding: 100px 0; }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
@@ -299,7 +261,6 @@
         }
         #backToTop:hover { transform: translateY(-5px); box-shadow: 0 0 25px rgba(56, 189, 248, 0.6); }
 
-        /* --- STYLE DES CARTES --- */
         .hover-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -317,7 +278,6 @@
         .skill-box { padding: 25px; display: flex; align-items: center; gap: 20px; }
         .skill-icon { font-size: 2rem; color: var(--primary); }
 
-        /* --- BOUTONS BIBLIOTHÈQUE --- */
         .nav-pills { justify-content: center; margin-bottom: 40px; gap: 10px; }
         
         .nav-pills .nav-link { 
@@ -329,8 +289,6 @@
             border: 1px solid transparent; 
         }
         
-        body.light .nav-pills .nav-link { background: #cbd5e1; color: var(--text-white) !important; }
-        
         .nav-pills .nav-link.active,
         .nav-pills .nav-link:hover { 
             background: var(--primary); 
@@ -340,7 +298,6 @@
             transform: translateY(-2px);
         }
 
-        /* --- DOC ITEM AVEC SURBRILLANCE FORTE --- */
         .doc-item {
             background: var(--card-bg); border: 1px solid var(--border);
             border-radius: 10px; padding: 15px 20px;
@@ -354,19 +311,12 @@
             transform: translateX(10px); 
             box-shadow: 0 0 20px var(--glow-color); 
         }
-        
-        body.light .doc-item:hover {
-            background: #ffffff; /* Le fond devient blanc pur au survol pour ressortir */
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
-        }
 
         .doc-left { display: flex; align-items: center; gap: 15px; }
         .doc-icon { font-size: 1.2rem; color: var(--primary); }
         .doc-title { font-weight: 700; color: var(--text-white); font-size: 0.95rem; }
         .doc-sub { font-size: 0.8rem; color: var(--text-gray); }
 
-        /* --- EXPÉRIENCE --- */
         .xp-list { display: flex; flex-direction: column; gap: 15px; }
         .xp-item {
             display: flex; align-items: flex-start; gap: 20px;
@@ -388,7 +338,6 @@
             display: flex; align-items: center; justify-content: center;
             font-size: 1.2rem; color: var(--text-white);
         }
-        body.light .xp-icon-box { background: #e2e8f0; color: var(--primary); }
         
         .xp-item:hover .xp-icon-box { background: var(--primary); color: #fff; border-color: var(--primary); }
         .xp-content { flex-grow: 1; }
@@ -398,12 +347,10 @@
             font-size: 0.75rem; font-weight: 700; background: rgba(255,255,255,0.05);
             padding: 4px 10px; border-radius: 6px; color: var(--primary); border: 1px solid var(--border);
         }
-        body.light .xp-date { background: #e2e8f0; border-color: #cbd5e1; }
 
         .xp-company { color: var(--text-gray); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .xp-company i { color: var(--accent); font-size: 0.8rem; }
 
-        /* --- VEILLE --- */
         .veille-box {
             background-color: var(--card-bg); border: 1px solid var(--border);
             border-radius: 12px; padding: 0; height: 100%;
@@ -428,18 +375,33 @@
         .v-source { font-size: 0.8rem; color: var(--secondary); font-style: italic; }
         .v-btn { color: var(--text-white); text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); transition: 0.2s; }
         .v-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
-        
-        body.light .v-btn { color: var(--text-gray); background: #e2e8f0; border-color: #cbd5e1; }
-        body.light .v-btn:hover { color: #fff; background: var(--primary); }
 
         .rotate-icon { transition: transform 0.3s ease; }
         .rotate-180 { transform: rotate(180deg); }
 
         footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-gray); font-size: 0.9rem; margin-top: 50px; background: var(--navbar-bg); }
         @media (max-width: 768px) { .hero h1 { font-size: 3.5rem; } .navbar { width: 100%; top: 0; border-radius: 0; } }
+        
+        /* Boutons personnalisés pour les fichiers */
+        .v-btn-custom {
+            padding: 4px 10px; 
+            font-size: 0.75rem; 
+            border-radius: 6px;
+            font-weight: 600;
+            transition: 0.2s;
+            text-decoration: none;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            color: var(--text-white);
+        }
+        .v-btn-custom:hover {
+            background: var(--primary);
+            color: #000;
+        }
     </style>
 </head>
-<body class="winter"> <div class="theme-switcher">
+<body class="winter"> 
+    <div class="theme-switcher">
         <button id="settings-btn" title="Changer l'ambiance">⚙️</button>
         <div id="theme-menu" class="hidden">
             <button onclick="setTheme('winter')">❄️ Hiver</button>
@@ -474,7 +436,7 @@
     </nav>
 
     <section id="accueil" class="hero">
-        <div class="container">
+        <div class="container text-center">
             <h1 class="reveal">YOANN<br>TOURNAL</h1>
             
             <div class="hero-badge reveal">
@@ -524,16 +486,17 @@
             <div class="section-header"><h2>Bibliothèque</h2><div class="divider"></div></div>
 
             <div class="row justify-content-center mb-4">
-    <div class="col-md-6">
-        <div class="input-group shadow-sm" style="border-radius: 50px; overflow: hidden; border: 1px solid var(--border); background: var(--card-bg);">
-            <span class="input-group-text border-0 bg-transparent text-primary"><i class="fas fa-search"></i></span>
-            <input type="text" id="pdfSearch" class="form-control border-0 bg-transparent text-white" placeholder="Rechercher un document (ex: SQL, Java, Réseau...)" style="box-shadow: none;">
-        </div>
-    </div>
-</div>
+                <div class="col-md-6">
+                    <div class="input-group shadow-sm" style="border-radius: 50px; overflow: hidden; border: 1px solid var(--border); background: var(--card-bg);">
+                        <span class="input-group-text border-0 bg-transparent text-primary"><i class="fas fa-search"></i></span>
+                        <input type="text" id="pdfSearch" class="form-control border-0 bg-transparent text-white" placeholder="Rechercher un document (ex: SQL, Java, Réseau...)" style="box-shadow: none;">
+                    </div>
+                </div>
+            </div>
 
             <ul class="nav nav-pills" id="pills-tab" role="tablist">
                 <li class="nav-item"><button class="nav-link" id="pills-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-sotoca">Mr Sotoca</button></li>
+                <li class="nav-item"><button class="nav-link" id="pills-b2-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-b2-sotoca">Bloc 2 Mr Sotoca</button></li>
                 <li class="nav-item"><button class="nav-link" id="pills-b3-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-b3-sotoca">Bloc 3 Mr Sotoca</button></li>
                 <li class="nav-item"><button class="nav-link" id="pills-atelier-tab" data-bs-toggle="pill" data-bs-target="#pills-atelier">Ateliers</button></li>
                 <li class="nav-item"><button class="nav-link" id="pills-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-beauvallet">Mme Beauvallet</button></li>
@@ -546,25 +509,6 @@
                     <p class="fs-5" style="color: var(--text-gray);"><i class="fas fa-arrow-up me-2"></i> Sélectionnez une catégorie pour afficher les documents</p>
                 </div>
 
-                <div class="tab-pane fade" id="pills-beauvallet">
-                    <div class="row g-3">
-                        <div class="col-lg-4 col-md-6"><a href="tp1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-gamepad doc-icon"></i><div><div class="doc-title">Jeux Labyrinthe</div><span class="doc-sub">Code.org</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp5 java.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">Java Intro</div><span class="doc-sub">TP5</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Java.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">Java 2</div><span class="doc-sub">Avancé</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp_shifumi.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-gamepad doc-icon"></i><div><div class="doc-title">TP Shifumi</div><span class="doc-sub">Jeu Java</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TP_5_JAVA.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">TP 5 JAVA</div><span class="doc-sub">Suite</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TP_fonctions_et_procédure.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code-branch doc-icon"></i><div><div class="doc-title">Fonctions</div><span class="doc-sub">Algo</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Bataille_navale.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-ship doc-icon"></i><div><div class="doc-title">Bataille Navale</div><span class="doc-sub">Jeu</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TP_POO..pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-cubes doc-icon"></i><div><div class="doc-title">TP POO</div><span class="doc-sub">Objets</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div><div class="doc-title">TP PHP</div><span class="doc-sub">Back</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Scene-Builder.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-paint-brush doc-icon"></i><div><div class="doc-title">Scene Builder</div><span class="doc-sub">JavaFX</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="AnalyseSI.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-magnifying-glass-chart doc-icon"></i><div class="doc-content"><div class="doc-title">AnalyseSI</div><span class="doc-sub">Modélisation</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-database doc-icon"></i><div class="doc-content"><div class="doc-title">Projet BDD Lycée</div><span class="doc-sub">SQL / MCD / Script</span></div></div><div class="d-flex gap-2 ms-auto"><a href="tp_bdd.pdf" target="_blank" class="v-btn" title="Voir PDF" style="padding: 4px 10px; font-size: 0.75rem;">PDF</a><a href="bdd_lyc__e_paul_lapie.sql" download class="v-btn" title="Télécharger SQL" style="padding: 4px 10px; font-size: 0.75rem; background: var(--primary); color: #000;">SQL</a></div></div></div>
-                        <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hippo doc-icon"></i><div class="doc-content"><div class="doc-title">BDD ZOO</div><span class="doc-sub">SQL / MCD / MLD</span></div></div><div class="d-flex gap-2 ms-auto"><a href="bdd_zoo.pdf" target="_blank" class="v-btn" title="Voir PDF" style="padding: 4px 10px; font-size: 0.75rem;">PDF</a><a href="bdd_zoo.pdf" download class="v-btn" title="Télécharger" style="padding: 4px 10px; font-size: 0.75rem; background: var(--primary); color: #000;">DL</a></div></div></div>
-                    
-                    </div>
-                </div>                      
-
                 <div class="tab-pane fade" id="pills-sotoca">
                     <div class="row g-3">
                         <div class="col-lg-4 col-md-6"><a href="tp3.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div><div class="doc-title">Initiation Réseau</div><span class="doc-sub">TP3</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
@@ -573,6 +517,18 @@
                         <div class="col-lg-4 col-md-6"><a href="commandes_cmd.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-terminal doc-icon"></i><div><div class="doc-title">CMD</div><span class="doc-sub">Terminal</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
                         <div class="col-lg-4 col-md-6"><a href="tp_TechCorp.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-building doc-icon"></i><div><div class="doc-title">TP TechCorp</div><span class="doc-sub">Projet</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
                         <div class="col-lg-4 col-md-6"><a href="tp21.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-terminal doc-icon"></i><div class="doc-content"><div class="doc-title">TP21 Linux</div><span class="doc-sub">Admin Système / Permissions</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="pills-b2-sotoca">
+                    <div class="row g-3">
+                        </div>
+                </div>
+
+                <div class="tab-pane fade" id="pills-b3-sotoca">
+                    <div class="row g-3">
+                        <div class="col-lg-4 col-md-6"><a href="b3_tp1_sotoca.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hdd doc-icon"></i><div><div class="doc-title">Serveur NAS</div><span class="doc-sub">Stockage</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                        <div class="col-lg-4 col-md-6"><a href="données_hachées.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-lock doc-icon"></i><div><div class="doc-title">Hachage</div><span class="doc-sub">Sécurité</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
                     </div>
                 </div>
 
@@ -590,7 +546,25 @@
                         <div class="col-lg-4 col-md-6"><a href="Javascript1_2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-js doc-icon"></i><div><div class="doc-title">JS 1/2</div><span class="doc-sub">Script</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
                         <div class="col-lg-4 col-md-6"><a href="Javascript tp12 .pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-js doc-icon"></i><div class="doc-content"><div class="doc-title">Javascript TP12</div><span class="doc-sub">Atelier 12</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                         <div class="col-lg-4 col-md-6"><a href="Javascript_tp13 .pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-keyboard doc-icon"></i><div><div class="doc-title">Javascript TP13</div><span class="doc-sub">Événements Touches</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-desktop doc-icon"></i><div class="doc-content"><div class="doc-title">Site Vitrine GSB</div><span class="doc-sub">WYSIWYG / Template</span></div></div><div class="d-flex gap-2 ms-auto"><a href="Le_site_vitrine.pdf" target="_blank" class="v-btn" title="Voir PDF" style="padding: 4px 10px; font-size: 0.75rem;">PDF</a><a href="site vitrine.zip" download class="v-btn" title="Télécharger ZIP" style="padding: 4px 10px; font-size: 0.75rem; background: var(--primary); color: #000;">ZIP</a></div></div></div>
+                        <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-desktop doc-icon"></i><div class="doc-content"><div class="doc-title">Site Vitrine GSB</div><span class="doc-sub">WYSIWYG / Template</span></div></div><div class="d-flex gap-2 ms-auto"><a href="Le_site_vitrine.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="site vitrine.zip" download class="v-btn-custom" title="Télécharger ZIP" style="background: var(--primary); color: #000;">ZIP</a></div></div></div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="pills-beauvallet">
+                    <div class="row g-3">
+                        <div class="col-lg-4 col-md-6"><a href="tp1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-gamepad doc-icon"></i><div><div class="doc-title">Jeux Labyrinthe</div><span class="doc-sub">Code.org</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                        <div class="col-lg-4 col-md-6"><a href="tp5 java.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">Java Intro</div><span class="doc-sub">TP5</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                        <div class="col-lg-4 col-md-6"><a href="Java.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">Java 2</div><span class="doc-sub">Avancé</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                        <div class="col-lg-4 col-md-6"><a href="tp_shifumi.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-gamepad doc-icon"></i><div><div class="doc-title">TP Shifumi</div><span class="doc-sub">Jeu Java</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                        <div class="col-lg-4 col-md-6"><a href="TP_5_JAVA.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">TP 5 JAVA</div><span class="doc-sub">Suite</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                        <div class="col-lg-4 col-md-6"><a href="TP_fonctions_et_procédure.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code-branch doc-icon"></i><div><div class="doc-title">Fonctions</div><span class="doc-sub">Algo</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                        <div class="col-lg-4 col-md-6"><a href="Bataille_navale.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-ship doc-icon"></i><div><div class="doc-title">Bataille Navale</div><span class="doc-sub">Jeu</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                        <div class="col-lg-4 col-md-6"><a href="TP_POO..pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-cubes doc-icon"></i><div><div class="doc-title">TP POO</div><span class="doc-sub">Objets</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                        <div class="col-lg-4 col-md-6"><a href="PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div><div class="doc-title">TP PHP</div><span class="doc-sub">Back</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                        <div class="col-lg-4 col-md-6"><a href="Scene-Builder.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-paint-brush doc-icon"></i><div><div class="doc-title">Scene Builder</div><span class="doc-sub">JavaFX</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                        <div class="col-lg-4 col-md-6"><a href="AnalyseSI.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-magnifying-glass-chart doc-icon"></i><div class="doc-content"><div class="doc-title">AnalyseSI</div><span class="doc-sub">Modélisation</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                        <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-database doc-icon"></i><div class="doc-content"><div class="doc-title">Projet BDD Lycée</div><span class="doc-sub">SQL / MCD / Script</span></div></div><div class="d-flex gap-2 ms-auto"><a href="tp_bdd.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="bdd_lyc__e_paul_lapie.sql" download class="v-btn-custom" title="Télécharger SQL" style="background: var(--primary); color: #000;">SQL</a></div></div></div>
+                        <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hippo doc-icon"></i><div class="doc-content"><div class="doc-title">BDD ZOO</div><span class="doc-sub">SQL / MCD / MLD</span></div></div><div class="d-flex gap-2 ms-auto"><a href="bdd_zoo.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="bdd_zoo.pdf" download class="v-btn-custom" title="Télécharger" style="background: var(--primary); color: #000;">DL</a></div></div></div>
                     </div>
                 </div>
 
@@ -603,13 +577,6 @@
                         <div class="col-lg-4 col-md-6"><a href="ch3_tp1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-book doc-icon"></i><div><div class="doc-title">Chapitre 3 TP1</div><span class="doc-sub">CR</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
                         <div class="col-lg-4 col-md-6"><a href="ch3_tp2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-book-open doc-icon"></i><div><div class="doc-title">TP2 Ch3</div><span class="doc-sub">CR</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
                         <div class="col-lg-4 col-md-6"><a href="TD1_CH4.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-secret doc-icon"></i><div class="doc-content"><div class="doc-title">TD1 CH4 - Audit Sécurité</div><span class="doc-sub">John the Ripper / Ophcrack</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                    </div>
-                </div>
-
-                <div class="tab-pane fade" id="pills-b3-sotoca">
-                    <div class="row g-3">
-                        <div class="col-lg-4 col-md-6"><a href="b3_tp1_sotoca.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hdd doc-icon"></i><div><div class="doc-title">Serveur NAS</div><span class="doc-sub">Stockage</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="données_hachées.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-lock doc-icon"></i><div><div class="doc-title">Hachage</div><span class="doc-sub">Sécurité</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
                     </div>
                 </div>
 
@@ -844,24 +811,20 @@
         const settingsBtn = document.getElementById('settings-btn');
         const themeMenu = document.getElementById('theme-menu');
 
-        settingsBtn.addEventListener('click', () => {
+        settingsBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             themeMenu.classList.toggle('hidden');
         });
 
         function setTheme(themeName) {
             const body = document.body;
-            // On enlève les classes existantes
             body.classList.remove('winter', 'light');
-            
-            // Si ce n'est pas "default", on ajoute la classe (pour winter ou light)
             if (themeName !== 'default') {
                 body.classList.add(themeName);
             }
-            
             themeMenu.classList.add('hidden');
         }
 
-        // Fermer le menu si on clique ailleurs
         document.addEventListener('click', (e) => {
             if (!settingsBtn.contains(e.target) && !themeMenu.contains(e.target)) {
                 themeMenu.classList.add('hidden');
@@ -919,7 +882,7 @@
         }
         document.addEventListener('DOMContentLoaded', type);
 
-        // --- 4. ANIMATION NEIGE (Générée par JS, visible uniquement si classe .winter) ---
+        // --- 4. ANIMATION NEIGE ---
         function createSnowflakes() {
             const snowflakesCount = 50; 
             for (let i = 0; i < snowflakesCount; i++) {
@@ -960,35 +923,31 @@
         });
         reveal();
 
-        // --- FONCTION DE RECHERCHE DANS LES DOCUMENTS ---
+        // --- 6. FONCTION DE RECHERCHE ---
         const searchInput = document.getElementById('pdfSearch');
         searchInput.addEventListener('keyup', function() {
             const term = searchInput.value.toLowerCase();
-            const items = document.querySelectorAll('.doc-item'); // On cible toutes les cases de TP
+            const items = document.querySelectorAll('.doc-item');
             const categories = document.querySelectorAll('.tab-pane');
             const placeholder = document.getElementById('placeholder-msg');
 
-            // Si on commence à chercher, on cache le message "Sélectionnez une catégorie"
             if (term.length > 0 && placeholder) placeholder.style.display = 'none';
 
             items.forEach(item => {
-                const title = item.querySelector('.doc-title').textContent.toLowerCase();
-                const sub = item.querySelector('.doc-sub').textContent.toLowerCase();
-                const parentDiv = item.closest('.col-lg-4'); // On prend toute la colonne Bootstrap
+                const title = item.querySelector('.doc-title')?.textContent.toLowerCase() || "";
+                const sub = item.querySelector('.doc-sub')?.textContent.toLowerCase() || "";
+                const parentDiv = item.closest('.col-lg-4');
 
                 if (title.includes(term) || sub.includes(term)) {
                     parentDiv.style.display = "block";
-                    // On force l'affichage de la catégorie parente si elle était cachée par les onglets
                     item.closest('.tab-pane').classList.add('active', 'show');
                 } else {
                     parentDiv.style.display = "none";
                 }
             });
 
-            // Si le champ est vidé, on remet le comportement normal des onglets
             if (term === "") {
                 categories.forEach(cat => cat.classList.remove('active', 'show'));
-                // Optionnel : affiche un onglet par défaut ou le placeholder
                 if (placeholder) placeholder.style.display = 'block';
             }
         });
