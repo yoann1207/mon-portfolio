@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -59,6 +58,31 @@
             --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --glow-color: rgba(59, 130, 246, 0.2); 
         }
+
+        /* --- AJOUTS SYMPAS : LOADING & EFFETS --- */
+        #loader {
+            position: fixed; inset: 0; background: #020408; z-index: 100000;
+            display: flex; justify-content: center; align-items: center;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .loader-box { text-align: center; }
+        .loader-name { font-family: 'Outfit'; font-size: 2rem; color: #fff; font-weight: 800; letter-spacing: 5px; margin-bottom: 10px; }
+        .loader-bar-container { width: 200px; height: 2px; background: rgba(255,255,255,0.1); margin: 0 auto; position: relative; overflow: hidden; }
+        .loader-bar { position: absolute; width: 0%; height: 100%; background: var(--primary); box-shadow: 0 0 15px var(--primary); }
+
+        #scroll-progress {
+            position: fixed; top: 0; left: 0; width: 0%; height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            z-index: 10001; transition: width 0.1s;
+        }
+
+        .hover-card { 
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.1s ease, border-color 0.3s ease;
+        }
+
+        /* -------------------------------------- */
 
         html { scroll-behavior: smooth; }
 
@@ -269,9 +293,9 @@
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative; overflow: hidden;
             box-shadow: var(--shadow-card);
+            backdrop-filter: blur(10px);
         }
         .hover-card:hover {
-            transform: translateY(-5px);
             border-color: var(--primary);
             box-shadow: 0 15px 35px -10px var(--glow-color); 
         }
@@ -402,6 +426,19 @@
     </style>
 </head>
 <body class="winter"> 
+
+    <div id="loader">
+        <div class="loader-box">
+            <div class="loader-name">YOANN TOURNAL</div>
+            <div class="loader-bar-container">
+                <div class="loader-bar" id="load-bar"></div>
+            </div>
+            <div class="loader-text mt-2" style="font-size: 0.7rem; opacity: 0.5;">CHARGEMENT DU SYSTÈME...</div>
+        </div>
+    </div>
+
+    <div id="scroll-progress"></div>
+
     <div class="theme-switcher">
         <button id="settings-btn" title="Changer l'ambiance">⚙️</button>
         <div id="theme-menu" class="hidden">
@@ -503,7 +540,7 @@
                 <li class="nav-item"><button class="nav-link" id="pills-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-beauvallet">Mme Beauvallet</button></li>
                 <li class="nav-item"><button class="nav-link" id="pills-b1-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-b1-beauvallet">Bloc 1 Mme Beauvallet</button></li>
                 <li class="nav-item"><button class="nav-link" id="pills-b3-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-b3-beauvallet">Bloc 3 Mme Beauvallet</button></li>
-            </ul>                          
+            </ul>                           
             
             <div class="tab-content" id="pills-tabContent">
                 
@@ -529,7 +566,6 @@
                       <div class="col-lg-4 col-md-6"><a href="Utilisateur_documentation.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-tie doc-icon"></i><div class="doc-content"><div class="doc-title">Doc Utilisateur AnyDesk</div><span class="doc-sub">Guide d'assistance à distance</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                       <div class="col-lg-4 col-md-6"><a href="TP02_Partitionnement_de_disques_durs.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hard-drive doc-icon"></i><div class="doc-content"><div class="doc-title">TP02 - Partitionnement</div><span class="doc-sub">EaseUS / Image Disque / Live CD</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>  
                       <div class="col-lg-4 col-md-6"><a href="TP03-1-Clônage.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-copy doc-icon"></i><div class="doc-content"><div class="doc-title">TP03 - Clonage</div><span class="doc-sub">Clonezilla / Sauvegarde ISO</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                    
                     </div>
                 </div>
 
@@ -556,7 +592,6 @@
                         <div class="col-lg-4 col-md-6"><a href="Javascript_tp13 .pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-keyboard doc-icon"></i><div><div class="doc-title">Javascript TP13</div><span class="doc-sub">Événements Touches</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
                         <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-desktop doc-icon"></i><div class="doc-content"><div class="doc-title">Site Vitrine GSB</div><span class="doc-sub">WYSIWYG / Template</span></div></div><div class="d-flex gap-2 ms-auto"><a href="Le_site_vitrine.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="site vitrine.zip" download class="v-btn-custom" title="Télécharger ZIP" style="background: var(--primary); color: #000;">ZIP</a></div></div></div>
                         <div class="col-lg-4 col-md-6"><a href="2-Lhébergement-du-site.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-server doc-icon"></i><div class="doc-content"><div class="doc-title">Hébergement GSB</div><span class="doc-sub">TinyWeb / XAMPP / Apache</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                        
                     </div>
                 </div>
 
@@ -714,62 +749,62 @@
 
             <div class="collapse" id="collapseVeille">
                 <h3 class="text-center mb-4 fs-6 text-primary" style="letter-spacing: 3px;">JANVIER 2026</h3>
-<div class="row g-4 mb-5">
-    <div class="col-lg-4 col-md-6">
-        <div class="veille-box hover-card">
-            <div class="veille-header"><span class="v-date">12-18 Jan</span><span class="v-badge badge-tech">Hardware</span></div>
-            <div class="veille-content">
-                <h4 class="v-title">Unitree G1 Mass Production</h4>
-                <p class="v-desc">Lancement de la production à grande échelle du modèle G1, cassant les prix du marché mondial.</p>
-            </div>
-            <div class="veille-footer"><span class="v-source">Robotics News</span><a href="https://www.google.com/search?q=unitree+g1+mass+production+2026" target="_blank" class="v-btn">Lire</a></div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <div class="veille-box hover-card">
-            <div class="veille-header"><span class="v-date">05-11 Jan</span><span class="v-badge badge-ia">IA</span></div>
-            <div class="veille-content">
-                <h4 class="v-title">LLM-V pour Humanoïdes</h4>
-                <p class="v-desc">Nouveau framework permettant aux robots de comprendre des instructions visuelles complexes en temps réel.</p>
-            </div>
-            <div class="veille-footer"><span class="v-source">AI Blog</span><a href="https://www.google.com/search?q=VLM+humanoid+robot+vision+language+model" target="_blank" class="v-btn">Lire</a></div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <div class="veille-box hover-card">
-            <div class="veille-header"><span class="v-date">01-04 Jan</span><span class="v-badge badge-reg">Légal</span></div>
-            <div class="veille-content">
-                <h4 class="v-title">Directive Robotique EU</h4>
-                <p class="v-desc">Mise en application des nouvelles normes de sécurité pour les humanoïdes en zone publique.</p>
-            </div>
-            <div class="veille-footer"><span class="v-source">Euractiv</span><a href="https://www.google.com/search?q=EU+robotics+regulation+2026+humanoid" target="_blank" class="v-btn">Lire</a></div>
-        </div>
-    </div>
-</div>
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="veille-box hover-card">
+                            <div class="veille-header"><span class="v-date">12-18 Jan</span><span class="v-badge badge-tech">Hardware</span></div>
+                            <div class="veille-content">
+                                <h4 class="v-title">Unitree G1 Mass Production</h4>
+                                <p class="v-desc">Lancement de la production à grande échelle du modèle G1, cassant les prix du marché mondial.</p>
+                            </div>
+                            <div class="veille-footer"><span class="v-source">Robotics News</span><a href="https://www.google.com/search?q=unitree+g1+mass+production+2026" target="_blank" class="v-btn">Lire</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="veille-box hover-card">
+                            <div class="veille-header"><span class="v-date">05-11 Jan</span><span class="v-badge badge-ia">IA</span></div>
+                            <div class="veille-content">
+                                <h4 class="v-title">LLM-V pour Humanoïdes</h4>
+                                <p class="v-desc">Nouveau framework permettant aux robots de comprendre des instructions visuelles complexes en temps réel.</p>
+                            </div>
+                            <div class="veille-footer"><span class="v-source">AI Blog</span><a href="https://www.google.com/search?q=VLM+humanoid+robot+vision+language+model" target="_blank" class="v-btn">Lire</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="veille-box hover-card">
+                            <div class="veille-header"><span class="v-date">01-04 Jan</span><span class="v-badge badge-reg">Légal</span></div>
+                            <div class="veille-content">
+                                <h4 class="v-title">Directive Robotique EU</h4>
+                                <p class="v-desc">Mise en application des nouvelles normes de sécurité pour les humanoïdes en zone publique.</p>
+                            </div>
+                            <div class="veille-footer"><span class="v-source">Euractiv</span><a href="https://www.google.com/search?q=EU+robotics+regulation+2026+humanoid" target="_blank" class="v-btn">Lire</a></div>
+                        </div>
+                    </div>
+                </div>
 
-<h3 class="text-center mb-4 fs-6 text-primary" style="letter-spacing: 3px;">FIN DÉCEMBRE 2025</h3>
-<div class="row g-4 mb-5">
-    <div class="col-lg-4 col-md-6">
-        <div class="veille-box hover-card">
-            <div class="veille-header"><span class="v-date">22-31 Déc</span><span class="v-badge badge-tech">Energie</span></div>
-            <div class="veille-content">
-                <h4 class="v-title">Batteries Solid-State</h4>
-                <p class="v-desc">Test réussi d'une batterie à état solide doublant l'autonomie de marche des robots bipèdes.</p>
-            </div>
-            <div class="veille-footer"><span class="v-source">EnergyTech</span><a href="https://www.google.com/search?q=solid+state+battery+humanoid+robot+autonomy" target="_blank" class="v-btn">Lire</a></div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <div class="veille-box hover-card">
-            <div class="veille-header"><span class="v-date">15-21 Déc</span><span class="v-badge badge-ia">Open Source</span></div>
-            <div class="veille-content">
-                <h4 class="v-title">Hugging Face Robotics</h4>
-                <p class="v-desc">Libération de jeux de données massifs pour l'entraînement de la marche par renforcement.</p>
-            </div>
-            <div class="veille-footer"><span class="v-source">GitHub</span><a href="https://www.google.com/search?q=hugging+face+robotics+dataset+open+source" target="_blank" class="v-btn">Lire</a></div>
-        </div>
-    </div>
-</div>
+                <h3 class="text-center mb-4 fs-6 text-primary" style="letter-spacing: 3px;">FIN DÉCEMBRE 2025</h3>
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="veille-box hover-card">
+                            <div class="veille-header"><span class="v-date">22-31 Déc</span><span class="v-badge badge-tech">Energie</span></div>
+                            <div class="veille-content">
+                                <h4 class="v-title">Batteries Solid-State</h4>
+                                <p class="v-desc">Test réussi d'une batterie à état solide doublant l'autonomie de marche des robots bipèdes.</p>
+                            </div>
+                            <div class="veille-footer"><span class="v-source">EnergyTech</span><a href="https://www.google.com/search?q=solid+state+battery+humanoid+robot+autonomy" target="_blank" class="v-btn">Lire</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="veille-box hover-card">
+                            <div class="veille-header"><span class="v-date">15-21 Déc</span><span class="v-badge badge-ia">Open Source</span></div>
+                            <div class="veille-content">
+                                <h4 class="v-title">Hugging Face Robotics</h4>
+                                <p class="v-desc">Libération de jeux de données massifs pour l'entraînement de la marche par renforcement.</p>
+                            </div>
+                            <div class="veille-footer"><span class="v-source">GitHub</span><a href="https://www.google.com/search?q=hugging+face+robotics+dataset+open+source" target="_blank" class="v-btn">Lire</a></div>
+                        </div>
+                    </div>
+                </div>
                 
                 <h3 class="text-center mb-4 fs-6 text-primary" style="letter-spacing: 3px;">DÉCEMBRE 2025</h3>
                 <div class="row g-4 mb-5">
@@ -869,162 +904,106 @@
 
     <button id="backToTop" class="btn-main"><i class="fas fa-arrow-up"></i></button>
 
-    <footer>
-        <div class="container">
-            <div class="d-flex justify-content-center gap-4 mb-3">
-                <a href="#" style="color: var(--text-gray);"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a href="#" style="color: var(--text-gray);"><i class="fab fa-github fa-lg"></i></a>
-            </div>
-            <p>&copy; 2025 Yoann Tournal. Tous droits réservés.</p>
-        </div>
-    </footer>
+    <footer class="py-5 text-center border-top border-secondary mt-5"><p>&copy; 2026 Yoann Tournal. Tous droits réservés.</p></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // --- 0. GESTION DES THEMES (JS) ---
-        const settingsBtn = document.getElementById('settings-btn');
-        const themeMenu = document.getElementById('theme-menu');
-
-        settingsBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            themeMenu.classList.toggle('hidden');
+        // --- 0. GESTION DU LOADING SCREEN OPTIMISÉ ---
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            const bar = document.getElementById('load-bar');
+            let width = 0;
+            
+            // Animation linéaire et fluide
+            let interval = setInterval(() => {
+                // Progression douce par petits pas
+                width += 1.5; 
+                if(width >= 100) {
+                    width = 100;
+                    clearInterval(interval);
+                    // Fondu de sortie soyeux
+                    setTimeout(() => {
+                        loader.style.opacity = "0";
+                        setTimeout(() => { 
+                            loader.style.display = "none"; 
+                            document.body.style.opacity = "1";
+                        }, 800);
+                    }, 200);
+                }
+                bar.style.width = width + "%";
+            }, 30);
         });
 
-        function setTheme(themeName) {
-            const body = document.body;
-            body.classList.remove('winter', 'light');
-            if (themeName !== 'default') {
-                body.classList.add(themeName);
-            }
-            themeMenu.classList.add('hidden');
+        // --- GESTION DES THEMES ---
+        function setTheme(t) { 
+            document.body.className = t === 'default' ? '' : t; 
+            document.getElementById('theme-menu').classList.add('hidden'); 
         }
+        document.getElementById('settings-btn').onclick = (e) => { 
+            e.stopPropagation(); 
+            document.getElementById('theme-menu').classList.toggle('hidden'); 
+        };
+        document.onclick = (e) => { 
+            if (!e.target.closest('.theme-switcher')) document.getElementById('theme-menu').classList.add('hidden'); 
+        };
 
-        document.addEventListener('click', (e) => {
-            if (!settingsBtn.contains(e.target) && !themeMenu.contains(e.target)) {
-                themeMenu.classList.add('hidden');
-            }
-        });
-
-        // --- 1. GESTION BIBLIOTHÈQUE ---
-        document.querySelectorAll('#pills-tab button').forEach(button => {
-            button.addEventListener('click', () => {
-                const placeholder = document.getElementById('placeholder-msg');
-                if(placeholder) placeholder.style.display = 'none';
-            });
-        });
-
-        // --- 2. GESTION ANIMATION FLÈCHE VEILLE ---
-        const btnVeille = document.getElementById('btnVeille');
-        const collapseVeille = document.getElementById('collapseVeille');
-        const arrowIcon = btnVeille.querySelector('.rotate-icon');
-
-        collapseVeille.addEventListener('show.bs.collapse', () => {
-            arrowIcon.classList.add('rotate-180');
-        });
-
-        collapseVeille.addEventListener('hide.bs.collapse', () => {
-            arrowIcon.classList.remove('rotate-180');
-        });
-
-        // --- 3. EFFET MACHINE À ÉCRIRE ---
+        // --- TYPEWRITER ---
         const textElement = document.getElementById("typewriter");
         const texts = ["Systèmes Numériques", "Administration Réseau", "Cybersécurité", "Proxmox & Linux"];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
+        let textIndex = 0; let charIndex = 0; let isDeleting = false;
         function type() {
             const currentText = texts[textIndex];
-            if (isDeleting) {
-                textElement.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                textElement.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentText.length) {
-                isDeleting = true;
-                setTimeout(type, 2000); 
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                setTimeout(type, 500); 
-            } else {
-                setTimeout(type, isDeleting ? 50 : 100);
-            }
+            textElement.textContent = isDeleting ? currentText.substring(0, charIndex--) : currentText.substring(0, charIndex++);
+            if (!isDeleting && charIndex > currentText.length) { isDeleting = true; setTimeout(type, 2000); }
+            else if (isDeleting && charIndex === 0) { isDeleting = false; textIndex = (textIndex + 1) % texts.length; setTimeout(type, 500); }
+            else setTimeout(type, isDeleting ? 50 : 100);
         }
         document.addEventListener('DOMContentLoaded', type);
 
-        // --- 4. ANIMATION NEIGE ---
+        // --- SNOW ---
         function createSnowflakes() {
-            const snowflakesCount = 50; 
-            for (let i = 0; i < snowflakesCount; i++) {
-                let snowflake = document.createElement("div");
-                snowflake.classList.add("snowflake");
-                snowflake.innerHTML = "❄";
-                snowflake.style.left = Math.random() * 100 + "vw";
-                snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
-                snowflake.style.fontSize = Math.random() * 10 + 10 + "px";
-                document.body.appendChild(snowflake);
+            for (let i = 0; i < 50; i++) {
+                let s = document.createElement("div"); s.className = "snowflake"; s.innerHTML = "❄";
+                s.style.left = Math.random() * 100 + "vw"; s.style.animationDuration = (Math.random() * 3 + 3) + "s";
+                s.style.fontSize = (Math.random() * 10 + 10) + "px"; document.body.appendChild(s);
             }
         }
-        document.addEventListener('DOMContentLoaded', createSnowflakes);
+        createSnowflakes();
 
-        // --- 5. SCROLL REVEAL & BACK TO TOP ---
-        const backToTopBtn = document.getElementById("backToTop");
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", () => {
-            reveal();
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                backToTopBtn.style.display = "block";
-            } else {
-                backToTopBtn.style.display = "none";
-            }
-        });
-        backToTopBtn.addEventListener("click", () => {
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        });
-        reveal();
-
-        // --- 6. FONCTION DE RECHERCHE ---
-        const searchInput = document.getElementById('pdfSearch');
-        searchInput.addEventListener('keyup', function() {
-            const term = searchInput.value.toLowerCase();
-            const items = document.querySelectorAll('.doc-item');
-            const categories = document.querySelectorAll('.tab-pane');
-            const placeholder = document.getElementById('placeholder-msg');
-
-            if (term.length > 0 && placeholder) placeholder.style.display = 'none';
-
-            items.forEach(item => {
-                const title = item.querySelector('.doc-title')?.textContent.toLowerCase() || "";
-                const sub = item.querySelector('.doc-sub')?.textContent.toLowerCase() || "";
-                const parentDiv = item.closest('.col-lg-4');
-
-                if (title.includes(term) || sub.includes(term)) {
-                    parentDiv.style.display = "block";
-                    item.closest('.tab-pane').classList.add('active', 'show');
-                } else {
-                    parentDiv.style.display = "none";
-                }
+        // --- SCROLL REVEAL & PROGRESS BAR ---
+        window.onscroll = () => {
+            document.querySelectorAll(".reveal").forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active");
             });
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            const prog = document.getElementById("scroll-progress");
+            if(prog) prog.style.width = scrolled + "%";
+            document.getElementById("backToTop").style.display = window.scrollY > 300 ? "block" : "none";
+        };
 
-            if (term === "") {
-                categories.forEach(cat => cat.classList.remove('active', 'show'));
-                if (placeholder) placeholder.style.display = 'block';
-            }
+        // --- SEARCH ---
+        document.getElementById('pdfSearch').onkeyup = function() {
+            const val = this.value.toLowerCase();
+            document.querySelectorAll('.doc-item').forEach(item => {
+                const match = item.textContent.toLowerCase().includes(val);
+                item.closest('.col-lg-4, .col-md-6').style.display = match ? "block" : "none";
+                if(match && val !== "") item.closest('.tab-pane').classList.add('active', 'show');
+            });
+        };
+
+        // --- TILT ---
+        document.querySelectorAll('.hover-card').forEach(card => {
+            card.onmousemove = (e) => {
+                let r = card.getBoundingClientRect();
+                let x = (e.clientX - r.left) / r.width - 0.5;
+                let y = (e.clientY - r.top) / r.height - 0.5;
+                card.style.transform = `perspective(1000px) rotateX(${y * -10}deg) rotateY(${x * 10}deg) translateY(-5px)`;
+            };
+            card.onmouseleave = () => card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
         });
+
+        document.getElementById('backToTop').onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+        document.querySelectorAll('#pills-tab button').forEach(b => b.onclick = () => document.getElementById('placeholder-msg').style.display = 'none');
     </script>
 </body>
 </html>
