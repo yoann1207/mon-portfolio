@@ -27,22 +27,6 @@
             --glow-color: rgba(56, 189, 248, 0.5); 
         }
 
-        body.winter {
-            --bg-core: #0f172a;   
-            --primary: #bae6fd;   
-            --secondary: #38bdf8;
-            --accent: #0ea5e9;
-            --card-bg: rgba(30, 41, 59, 0.75);
-            --border: rgba(255, 255, 255, 0.2);
-            --text-white: #f0f9ff;
-            --text-gray: #cbd5e1;
-            --navbar-bg: rgba(15, 23, 42, 0.95);
-            --btn-main-bg: #e0f2fe;
-            --btn-main-text: #0f172a;
-            --shadow-card: 0 10px 30px -10px rgba(56, 189, 248, 0.25);
-            --glow-color: rgba(186, 230, 253, 0.6); 
-        }
-
         body.light {
             --bg-core: #dce3e8;   
             --primary: #3b82f6;   
@@ -175,41 +159,11 @@
             transition: opacity 0.5s ease;
             opacity: 1; 
         }
-        body.winter .background-aurora,
         body.light .background-aurora {
             opacity: 0; 
         }
 
         @keyframes moveAurora { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
-
-        .snowflake {
-            position: fixed; top: -10px; z-index: -1;
-            color: #FFF; font-size: 1em; opacity: 0.6;
-            user-select: none; pointer-events: none;
-            animation: snowfall linear infinite;
-            display: none; 
-        }
-        body.winter .snowflake { display: block; } 
-
-        @keyframes snowfall {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0.2; }
-        }
-
-        .badge-hiver { display: none; }
-        body.winter .badge-hiver { 
-            display: inline-block; 
-            font-size: 0.65rem;
-            background: rgba(14, 165, 233, 0.15);
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 4px 12px;
-            border-radius: 50px;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-left: 10px;
-            letter-spacing: 1px;
-        }
 
         .navbar {
             background: var(--navbar-bg);
@@ -425,7 +379,7 @@
         }
     </style>
 </head>
-<body class="winter"> 
+<body> 
 
     <div id="loader">
         <div class="loader-box">
@@ -442,7 +396,6 @@
     <div class="theme-switcher">
         <button id="settings-btn" title="Changer l'ambiance">⚙️</button>
         <div id="theme-menu" class="hidden">
-            <button onclick="setTheme('winter')">❄️ Hiver</button>
             <button onclick="setTheme('default')">🔵 Par défaut</button>
             <button onclick="setTheme('light')">☁️ Light</button>
         </div>
@@ -453,9 +406,6 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 YOANN T.
-                <span class="badge-hiver">
-                    <i class="fas fa-snowflake me-1"></i> Edition Hiver
-                </span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="filter: invert(1);">
                 <i class="fas fa-bars"></i>
@@ -563,7 +513,7 @@
 
                 <div class="tab-pane fade" id="pills-b2-sotoca">
                     <div class="row g-3">
-                      <div class="col-lg-4 col-md-6"><a href="TP01_Prise_de_contrôle_à_distance.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div class="doc-content"><div class="doc-title">TP01 - Contrôle Distance</div><span class="doc-sub">Audit RustDesk / AnyDesk / RDP</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>    
+                      <div class="col-lg-4 col-md-6"><a href="TP01_Prise_de_contrôle_à_distance.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div class="doc-content"><div class="doc-title">TP01 - Contrôle Distance</div><span class="doc-sub">Audit RustDesk / AnyDesk / RDP</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>  
                       <div class="col-lg-4 col-md-6"><a href="Technicien_documentation .pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-gear doc-icon"></i><div class="doc-content"><div class="doc-title">Doc Technicien AnyDesk</div><span class="doc-sub">Installation et Mode Service</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                       <div class="col-lg-4 col-md-6"><a href="Utilisateur_documentation.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-tie doc-icon"></i><div class="doc-content"><div class="doc-title">Doc Utilisateur AnyDesk</div><span class="doc-sub">Guide d'assistance à distance</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                       <div class="col-lg-4 col-md-6"><a href="TP02_Partitionnement_de_disques_durs.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hard-drive doc-icon"></i><div class="doc-content"><div class="doc-title">TP02 - Partitionnement</div><span class="doc-sub">EaseUS / Image Disque / Live CD</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>  
@@ -632,7 +582,7 @@
                     <div class="col-lg-4 col-md-6"><a href="Gestion des USERS  Test sur PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div class="doc-content"><div class="doc-title">PHP & USERS MySQL</div><span class="doc-sub">Connexion BDD / Affichage PHP</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                     <div class="col-lg-4 col-md-6"><a href="Bases_du_langage_PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div class="doc-content"><div class="doc-title">TP 1 base PHP</div><span class="doc-sub"> /</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
 <div class="col-lg-4 col-md-6"><a href="Programmer_avec_PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div class="doc-content"><div class="doc-title">Programmer avec PHP</div><span class="doc-sub">Boucles / Variables / Tableaux</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                   
+                    
                 <div class="col-lg-4 col-md-6"><a href="3.Transmission de données entre pages.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-exchange-alt doc-icon"></i><div class="doc-content"><div class="doc-title">Transmission de données</div><span class="doc-sub">PHP / GET & POST / Formulaires</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                     </div>
                 </div>
@@ -644,7 +594,7 @@
                         <div class="col-lg-4 col-md-6"><a href="PIA_2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-project-diagram doc-icon"></i><div><div class="doc-title">TP PIA 2</div><span class="doc-sub">Projet 2</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
                         <div class="col-lg-4 col-md-6"><a href="pia yoann.zip" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-file-archive doc-icon text-warning"></i><div><div class="doc-title">ZIP PIA 2</div><span class="doc-sub">Ressources</span></div></div><i class="fas fa-download text-primary"></i></a></div>
                         <div class="col-lg-4 col-md-6"><a href="ch3_tp1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-book doc-icon"></i><div><div class="doc-title">Chapitre 3 TP1</div><span class="doc-sub">CR</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TD02_BEAUVALLET.docx.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-shield doc-icon"></i><div class="doc-content"><div class="doc-title">Sécurisation PGP</div><span class="doc-sub">PGP / VirtualBox / Preuve Numérique</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>                       
+                        <div class="col-lg-4 col-md-6"><a href="TD02_BEAUVALLET.docx.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-shield doc-icon"></i><div class="doc-content"><div class="doc-title">Sécurisation PGP</div><span class="doc-sub">PGP / VirtualBox / Preuve Numérique</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>                        
                         <div class="col-lg-4 col-md-6"><a href="TD1_CH4.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-secret doc-icon"></i><div class="doc-content"><div class="doc-title">TD1 CH4 - Audit Sécurité</div><span class="doc-sub">John the Ripper / Ophcrack</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                        <div class="col-lg-4 col-md-6"><a href="TD2_CH4.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-search-plus doc-icon"></i><div class="doc-content"><div class="doc-title">TD 07 - Veille Info</div><span class="doc-sub">Curation / Feedly / Cybersécurité</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                         <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div class="doc-content"><div class="doc-title">TD08 - Routage VLAN</div><span class="doc-sub">Packet Tracer / 802.1Q</span></div></div><div class="d-flex gap-2 ms-auto"><a href="TD 08 packet tracer.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="TP 8.pkt" download class="v-btn-custom" title="Télécharger PKT" style="background: var(--primary); color: var(--btn-main-text);">PKT</a></div></div></div>                  
@@ -962,7 +912,7 @@
         // --- GESTION DES THEMES ---
         function setTheme(themeName) {
             const body = document.body;
-            body.classList.remove('winter', 'light');
+            body.classList.remove('light');
             if (themeName !== 'default') {
                 body.classList.add(themeName);
             }
@@ -986,16 +936,6 @@
             else setTimeout(type, isDeleting ? 40 : 80);
         }
         document.addEventListener('DOMContentLoaded', type);
-
-        // --- SNOW ENGINE ---
-        function createSnowflakes() {
-            for (let i = 0; i < 50; i++) {
-                let s = document.createElement("div"); s.className = "snowflake"; s.innerHTML = "❄";
-                s.style.left = Math.random() * 100 + "vw"; s.style.animationDuration = (Math.random() * 3 + 3) + "s";
-                s.style.fontSize = (Math.random() * 10 + 10) + "px"; document.body.appendChild(s);
-            }
-        }
-        createSnowflakes();
 
         // --- SCROLL REVEAL & PROGRESS BAR ---
         window.onscroll = () => {
