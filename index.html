@@ -88,65 +88,25 @@
 
         a { text-decoration: none; transition: 0.3s ease; }
 
-        .theme-switcher {
-            position: fixed;
-            top: 85px; 
-            right: 20px;
-            z-index: 2000;
-        }
-
+        .theme-switcher { position: fixed; top: 85px;  right: 20px; z-index: 2000; }
         #settings-btn {
-            font-size: 1.5rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            color: var(--text-white);
-            cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 50%;
-            transition: transform 0.5s, background 0.3s;
+            font-size: 1.5rem; background: var(--card-bg); border: 1px solid var(--border); color: var(--text-white);
+            cursor: pointer; padding: 8px 12px; border-radius: 50%; transition: transform 0.5s, background 0.3s;
             box-shadow: var(--shadow-card);
         }
-
-        #settings-btn:hover {
-            transform: rotate(90deg);
-            border-color: var(--primary);
-            color: var(--primary);
-        }
+        #settings-btn:hover { transform: rotate(90deg); border-color: var(--primary); color: var(--primary); }
 
         #theme-menu {
-            position: absolute;
-            right: 0;
-            top: 55px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 10px;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            width: 150px;
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-card);
+            position: absolute; right: 0; top: 55px; background: var(--card-bg); border: 1px solid var(--border);
+            padding: 10px; border-radius: 12px; display: flex; flex-direction: column; gap: 8px; width: 150px;
+            backdrop-filter: blur(10px); box-shadow: var(--shadow-card);
         }
-
         #theme-menu button {
-            background: transparent;
-            border: 1px solid transparent;
-            color: var(--text-gray);
-            padding: 8px 12px;
-            text-align: left;
-            cursor: pointer;
-            border-radius: 6px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: 0.2s;
+            background: transparent; border: 1px solid transparent; color: var(--text-gray); padding: 8px 12px;
+            text-align: left; cursor: pointer; border-radius: 6px; font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem; font-weight: 600; transition: 0.2s;
         }
-
-        #theme-menu button:hover {
-            background: var(--primary);
-            color: #fff; 
-        }
+        #theme-menu button:hover { background: var(--primary); color: #fff;  }
 
         .hidden { display: none !important; }
 
@@ -154,72 +114,42 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
             background: radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.15), transparent 50%),
                         radial-gradient(circle at 100% 100%, rgba(192, 132, 252, 0.15), transparent 50%);
-            filter: blur(80px);
-            animation: moveAurora 15s infinite alternate;
-            transition: opacity 0.5s ease;
-            opacity: 1; 
+            filter: blur(80px); animation: moveAurora 15s infinite alternate; transition: opacity 0.5s ease; opacity: 1; 
         }
-        body.light .background-aurora {
-            opacity: 0; 
-        }
-
+        body.light .background-aurora { opacity: 0; }
         @keyframes moveAurora { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
 
         .navbar {
-            background: var(--navbar-bg);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            padding: 15px 0;
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-            transition: background 0.3s;
+            background: var(--navbar-bg); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+            padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; transition: background 0.3s;
         }
         .navbar-brand { font-weight: 800; font-size: 1.2rem; color: var(--text-white) !important; display: flex; align-items: center; }
         .nav-link { color: var(--text-gray) !important; font-size: 0.9rem; margin: 0 5px; }
         .nav-link:hover { color: var(--primary) !important; }
 
         .hero {
-            min-height: 90vh;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            padding-top: 80px;
+            min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding-top: 80px;
         }
         .hero h1 {
-            font-size: 7rem;
-            line-height: 1;
-            margin-bottom: 30px;
+            font-size: 7rem; line-height: 1; margin-bottom: 30px;
             background: linear-gradient(to bottom, var(--text-white) 40%, var(--primary) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.2));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.2));
         }
-        
         .hero-badge {
-            font-size: 1.2rem;
-            color: var(--primary);
-            font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-            background: rgba(56, 189, 248, 0.08);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            padding: 12px 30px; border-radius: 50px;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
-            min-width: 300px;
+            font-size: 1.2rem; color: var(--primary); font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+            background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 12px 30px; border-radius: 50px; box-shadow: 0 0 15px rgba(56, 189, 248, 0.1); min-width: 300px;
         }
-
         .cursor { animation: blink 1s infinite; margin-left: 5px; color: var(--text-white); }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
         .hero-btns { margin-top: 50px; display: flex; gap: 20px; }
         .btn-main { 
-            background: var(--btn-main-bg); 
-            color: var(--btn-main-text); 
-            padding: 12px 35px; border-radius: 50px; font-weight: 700; border: none; 
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: var(--btn-main-bg); color: var(--btn-main-text); padding: 12px 35px; border-radius: 50px; font-weight: 700; border: none; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .btn-main:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--glow-color); }
-        
         .btn-sec { 
-            background: rgba(255,255,255,0.05); 
-            color: var(--text-white); 
-            padding: 12px 35px; border-radius: 50px; font-weight: 700; 
-            border: 1px solid var(--border); 
+            background: rgba(255,255,255,0.05); color: var(--text-white); padding: 12px 35px; border-radius: 50px; font-weight: 700; border: 1px solid var(--border); 
         }
         .btn-sec:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
 
@@ -232,64 +162,49 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         #backToTop {
-            position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
-            border-radius: 50%; padding: 0; display: none; z-index: 999;
-            background: var(--primary); color: #fff; border: none;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-            transition: 0.3s;
+            position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; border-radius: 50%; padding: 0; display: none; z-index: 999;
+            background: var(--primary); color: #fff; border: none; box-shadow: 0 0 15px rgba(56, 189, 248, 0.4); transition: 0.3s;
         }
         #backToTop:hover { transform: translateY(-5px); box-shadow: 0 0 25px rgba(56, 189, 248, 0.6); }
 
         .hover-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative; overflow: hidden;
-            box-shadow: var(--shadow-card);
-            backdrop-filter: blur(10px);
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); position: relative; overflow: hidden;
+            box-shadow: var(--shadow-card); backdrop-filter: blur(10px);
         }
-        .hover-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 15px 35px -10px var(--glow-color); 
-        }
+        .hover-card:hover { border-color: var(--primary); box-shadow: 0 15px 35px -10px var(--glow-color); }
         
         .skill-box { padding: 25px; display: flex; align-items: center; gap: 20px; }
         .skill-icon { font-size: 2rem; color: var(--primary); }
 
-        .nav-pills { justify-content: center; margin-bottom: 40px; gap: 10px; }
-        
-        .nav-pills .nav-link { 
-            background: rgba(255,255,255,0.05); 
-            color: var(--text-gray) !important; 
-            border-radius: 50px; 
-            padding: 10px 25px; 
-            transition: 0.3s ease; 
-            border: 1px solid transparent; 
+        /* --- STYLES DES ONGLETS ANNEES --- */
+        .year-tabs {
+            display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; border-bottom: 2px solid var(--border); padding-bottom: 10px; list-style: none; padding-left: 0;
         }
-        
-        .nav-pills .nav-link.active,
-        .nav-pills .nav-link:hover { 
-            background: var(--primary); 
-            color: #fff !important; 
-            box-shadow: 0 0 15px var(--glow-color); 
-            border-color: var(--primary);
-            transform: translateY(-2px);
+        .year-btn {
+            background: transparent; color: var(--text-gray); border: none; font-size: 1.2rem; font-weight: 700;
+            padding: 10px 20px; cursor: pointer; transition: all 0.3s ease; position: relative; font-family: 'Outfit', sans-serif; letter-spacing: 1px;
+        }
+        .year-btn.active, .year-btn:hover { color: var(--text-white); }
+        .year-btn::after {
+            content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
+            width: 0; height: 3px; background: var(--primary); transition: 0.3s ease; border-radius: 5px;
+        }
+        .year-btn.active::after { width: 100%; }
+
+        /* --- STYLES DES SOUS-ONGLETS (PROFS) --- */
+        .nav-pills { justify-content: center; margin-bottom: 40px; gap: 10px; }
+        .nav-pills .nav-link { 
+            background: rgba(255,255,255,0.05); color: var(--text-gray) !important; border-radius: 50px; padding: 10px 25px; transition: 0.3s ease; border: 1px solid transparent; font-size: 0.9rem;
+        }
+        .nav-pills .nav-link.active, .nav-pills .nav-link:hover { 
+            background: var(--primary); color: #fff !important; box-shadow: 0 0 15px var(--glow-color); border-color: var(--primary); transform: translateY(-2px);
         }
 
         .doc-item {
-            background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 10px; padding: 15px 20px;
-            display: flex; align-items: center; justify-content: space-between;
-            text-decoration: none; 
-            transition: all 0.3s ease; 
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; text-decoration: none; transition: all 0.3s ease; 
         }
-        .doc-item:hover { 
-            border-color: var(--primary); 
-            background: rgba(56, 189, 248, 0.15); 
-            transform: translateX(10px); 
-            box-shadow: 0 0 20px var(--glow-color); 
-        }
+        .doc-item:hover { border-color: var(--primary); background: rgba(56, 189, 248, 0.15); transform: translateX(10px); box-shadow: 0 0 20px var(--glow-color); }
 
         .doc-left { display: flex; align-items: center; gap: 15px; }
         .doc-icon { font-size: 1.2rem; color: var(--primary); }
@@ -298,58 +213,32 @@
 
         .xp-list { display: flex; flex-direction: column; gap: 15px; }
         .xp-item {
-            display: flex; align-items: flex-start; gap: 20px;
-            background: var(--card-bg); border: 1px solid var(--border);
-            padding: 20px; border-radius: 12px; position: relative;
-            overflow: hidden; transition: 0.3s ease;
-            box-shadow: var(--shadow-card);
+            display: flex; align-items: flex-start; gap: 20px; background: var(--card-bg); border: 1px solid var(--border); padding: 20px; border-radius: 12px; position: relative; overflow: hidden; transition: 0.3s ease; box-shadow: var(--shadow-card);
         }
-        .xp-item::before {
-            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-            background: var(--primary); opacity: 0; transition: 0.3s;
-        }
+        .xp-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--primary); opacity: 0; transition: 0.3s; }
         .xp-item:hover { transform: translateX(5px); border-color: var(--primary); }
         .xp-item:hover::before { opacity: 1; }
-        
-        .xp-icon-box {
-            min-width: 50px; height: 50px; background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border); border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; color: var(--text-white);
-        }
-        
+        .xp-icon-box { min-width: 50px; height: 50px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--text-white); }
         .xp-item:hover .xp-icon-box { background: var(--primary); color: #fff; border-color: var(--primary); }
         .xp-content { flex-grow: 1; }
         .xp-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
         .xp-title { font-size: 1.1rem; font-weight: 700; color: var(--text-white); margin: 0; }
-        .xp-date {
-            font-size: 0.75rem; font-weight: 700; background: rgba(255,255,255,0.05);
-            padding: 4px 10px; border-radius: 6px; color: var(--primary); border: 1px solid var(--border);
-        }
-
+        .xp-date { font-size: 0.75rem; font-weight: 700; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 6px; color: var(--primary); border: 1px solid var(--border); }
         .xp-company { color: var(--text-gray); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .xp-company i { color: var(--accent); font-size: 0.8rem; }
 
-        .veille-box {
-            background-color: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 12px; padding: 0; height: 100%;
-            transition: all 0.3s ease; display: flex; flex-direction: column;
-            overflow: hidden; box-shadow: var(--shadow-card);
-        }
+        .veille-box { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 0; height: 100%; transition: all 0.3s ease; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow-card); }
         .veille-box:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px var(--glow-color); }
         .veille-header { padding: 20px 25px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.02); }
         .v-date { font-size: 0.8rem; color: var(--text-gray); font-weight: 600; }
         .v-badge { font-size: 0.7rem; text-transform: uppercase; font-weight: 800; padding: 4px 8px; border-radius: 4px; }
-        
         .badge-market { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
         .badge-tech { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
         .badge-ia { background: rgba(236, 72, 153, 0.15); color: #ec4899; }
         .badge-reg { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
-        
         .veille-content { padding: 25px; flex-grow: 1; }
         .v-title { color: var(--text-white); font-size: 1.15rem; margin-bottom: 10px; line-height: 1.4; }
         .v-desc { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0; }
-        
         .veille-footer { padding: 15px 25px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.02); }
         .v-source { font-size: 0.8rem; color: var(--secondary); font-style: italic; }
         .v-btn { color: var(--text-white); text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); transition: 0.2s; }
@@ -361,22 +250,8 @@
         footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-gray); font-size: 0.9rem; margin-top: 50px; background: var(--navbar-bg); }
         @media (max-width: 768px) { .hero h1 { font-size: 3.5rem; } .navbar { width: 100%; top: 0; border-radius: 0; } }
         
-        /* Boutons personnalisés pour les fichiers */
-        .v-btn-custom {
-            padding: 4px 10px; 
-            font-size: 0.75rem; 
-            border-radius: 6px;
-            font-weight: 600;
-            transition: 0.2s;
-            text-decoration: none;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border);
-            color: var(--text-white);
-        }
-        .v-btn-custom:hover {
-            background: var(--primary);
-            color: #000;
-        }
+        .v-btn-custom { padding: 4px 10px; font-size: 0.75rem; border-radius: 6px; font-weight: 600; transition: 0.2s; text-decoration: none; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-white); }
+        .v-btn-custom:hover { background: var(--primary); color: #000; }
     </style>
 </head>
 <body> 
@@ -404,9 +279,7 @@
 
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                YOANN T.
-            </a>
+            <a class="navbar-brand" href="#">YOANN T.</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="filter: invert(1);">
                 <i class="fas fa-bars"></i>
             </button>
@@ -426,11 +299,7 @@
     <section id="accueil" class="hero">
         <div class="container text-center">
             <h1 class="reveal">YOANN<br>TOURNAL</h1>
-            
-            <div class="hero-badge reveal">
-                <span id="typewriter"></span><span class="cursor">|</span>
-            </div>
-
+            <div class="hero-badge reveal"><span id="typewriter"></span><span class="cursor">|</span></div>
             <div class="hero-btns reveal">
                 <a href="#projets" class="btn-main">Voir mes Projets</a>
                 <a href="mailto:yoann.tournal.pro@gmail.com" class="btn-sec">Me contacter</a>
@@ -482,126 +351,145 @@
                 </div>
             </div>
 
-            <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                <li class="nav-item"><button class="nav-link" id="pills-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-sotoca">Mr Sotoca</button></li>
-                <li class="nav-item"><button class="nav-link" id="pills-b2-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-b2-sotoca">Bloc 2 Mr Sotoca</button></li>
-                <li class="nav-item"><button class="nav-link" id="pills-b3-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-b3-sotoca">Bloc 3 Mr Sotoca</button></li>
-                <li class="nav-item"><button class="nav-link" id="pills-atelier-tab" data-bs-toggle="pill" data-bs-target="#pills-atelier">Ateliers</button></li>
-                <li class="nav-item"><button class="nav-link" id="pills-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-beauvallet">Mme Beauvallet</button></li>
-                <li class="nav-item"><button class="nav-link" id="pills-b1-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-b1-beauvallet">Bloc 1 Mme Beauvallet</button></li>
-                <li class="nav-item"><button class="nav-link" id="pills-b3-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-b3-beauvallet">Bloc 3 Mme Beauvallet</button></li>
-            </ul>                           
-            
-            <div class="tab-content" id="pills-tabContent">
+            <ul class="year-tabs" id="year-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="year-btn active" id="year1-tab" data-bs-toggle="tab" data-bs-target="#year1-pane" type="button" role="tab" aria-controls="year1-pane" aria-selected="true">Première Année</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="year-btn" id="year2-tab" data-bs-toggle="tab" data-bs-target="#year2-pane" type="button" role="tab" aria-controls="year2-pane" aria-selected="false">Deuxième Année</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="year-tabContent">
                 
-                <div id="placeholder-msg" class="text-center py-5">
-                    <p class="fs-5" style="color: var(--text-gray);"><i class="fas fa-arrow-up me-2"></i> Sélectionnez une catégorie pour afficher les documents</p>
-                </div>
-
-                <div class="tab-pane fade" id="pills-sotoca">
-                    <div class="row g-3">
-                        <div class="col-lg-4 col-md-6"><a href="tp3.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div><div class="doc-title">Initiation Réseau</div><span class="doc-sub">TP3</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp4.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-tools doc-icon"></i><div><div class="doc-title">Diagnostic</div><span class="doc-sub">TP4</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp7.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-camera doc-icon"></i><div><div class="doc-title">Captures</div><span class="doc-sub">TP7</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="commandes_cmd.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-terminal doc-icon"></i><div><div class="doc-title">CMD</div><span class="doc-sub">Terminal</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp_TechCorp.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-building doc-icon"></i><div><div class="doc-title">TP TechCorp</div><span class="doc-sub">Projet</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp21.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-terminal doc-icon"></i><div class="doc-content"><div class="doc-title">TP21 Linux</div><span class="doc-sub">Admin Système / Permissions</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                    <div class="col-lg-4 col-md-6"><a href="TP1 Installation d'un serveur _ TP2 L'Active Directory.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-users-cog doc-icon"></i><div class="doc-content"><div class="doc-title">TP1&2 Windows Server</div><span class="doc-sub">Active Directory / DNS / Groupes</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-<div class="col-lg-4 col-md-6"><a href="TP3_Connexion_Domaine.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-plug doc-icon"></i><div class="doc-content"><div class="doc-title">TP3 - Connexion Domaine</div><span class="doc-sub">Active Directory / Poste Client / DNS</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>                    
-                    </div>
-                </div>
-
-                <div class="tab-pane fade" id="pills-b2-sotoca">
-                    <div class="row g-3">
-                      <div class="col-lg-4 col-md-6"><a href="TP01_Prise_de_contrôle_à_distance.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div class="doc-content"><div class="doc-title">TP01 - Contrôle Distance</div><span class="doc-sub">Audit RustDesk / AnyDesk / RDP</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>  
-                      <div class="col-lg-4 col-md-6"><a href="Technicien_documentation .pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-gear doc-icon"></i><div class="doc-content"><div class="doc-title">Doc Technicien AnyDesk</div><span class="doc-sub">Installation et Mode Service</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                      <div class="col-lg-4 col-md-6"><a href="Utilisateur_documentation.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-tie doc-icon"></i><div class="doc-content"><div class="doc-title">Doc Utilisateur AnyDesk</div><span class="doc-sub">Guide d'assistance à distance</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                      <div class="col-lg-4 col-md-6"><a href="TP02_Partitionnement_de_disques_durs.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hard-drive doc-icon"></i><div class="doc-content"><div class="doc-title">TP02 - Partitionnement</div><span class="doc-sub">EaseUS / Image Disque / Live CD</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>  
-                      <div class="col-lg-4 col-md-6"><a href="TP03-1-Clônage.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-copy doc-icon"></i><div class="doc-content"><div class="doc-title">TP03 - Clonage</div><span class="doc-sub">Clonezilla / Sauvegarde ISO</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                      <div class="col-lg-4 col-md-6"><a href="TP04-WakeOnLan.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-wifi doc-icon"></i><div class="doc-content"><div class="doc-title">TP04 - Wake On Lan</div><span class="doc-sub">BIOS / Magic Packet / EtherCheck</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                      <div class="col-lg-4 col-md-6"><a href="TP05 - Serveur de fichiers.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-folder-tree doc-icon"></i><div class="doc-content"><div class="doc-title">TP05 - Serveur Fichiers</div><span class="doc-sub">HFS / Partage HTTP / Droits</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                      
-                        <div class="col-lg-4 col-md-6"><a href="TP06_Keylogger_CompteRendu.docx.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-secret doc-icon"></i><div class="doc-content"><div class="doc-title">TP06 - Mise en place Keylogger</div><span class="doc-sub">Powered Keylogger / Furtivité / RGPD</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                    <div class="col-lg-4 col-md-6"><a href="tp07_kit_technicien.docx.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-toolbox doc-icon"></i><div class="doc-content"><div class="doc-title">TP07 - Kit Technicien</div><span class="doc-sub">Outils Portables / Diagnostic / Réseau</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-<div class="col-lg-4 col-md-6"><a href="TP09_Switch_Manageable_Fahad_yoann.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div class="doc-content"><div class="doc-title">TP09 Switch Netgear</div><span class="doc-sub">VLAN Port-Based / Switch / DHCP</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>                    </div>
-                </div>
-
-                <div class="tab-pane fade" id="pills-b3-sotoca">
-                    <div class="row g-3">
-                        <div class="col-lg-4 col-md-6"><a href="b3_tp1_sotoca.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hdd doc-icon"></i><div><div class="doc-title">Serveur NAS</div><span class="doc-sub">Stockage</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="données_hachées.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-lock doc-icon"></i><div><div class="doc-title">Hachage</div><span class="doc-sub">Sécurité</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                    <div class="col-lg-4 col-md-6"><a href="DeepFreeze_Complet.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-snowflake doc-icon"></i><div class="doc-content"><div class="doc-title">TP Deep Freeze</div><span class="doc-sub">Gel Système / Console / ThawSpace</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                    </div>
-                </div>
-
-                <div class="tab-pane fade" id="pills-atelier">
-                    <div class="row g-3">
-                        <div class="col-lg-4 col-md-6"><a href="tp2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-globe doc-icon"></i><div><div class="doc-title">Portfolio</div><span class="doc-sub">Web Dev</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp6 html.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-html5 doc-icon"></i><div><div class="doc-title">HTML Bases</div><span class="doc-sub">TP6</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp css.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-css3-alt doc-icon"></i><div><div class="doc-title">CSS</div><span class="doc-sub">Style</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TD1-Ressources.zip" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-file-archive doc-icon text-warning"></i><div><div class="doc-title">Site Chuck</div><span class="doc-sub">ZIP</span></div></div><i class="fas fa-download text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="ccs_html_avancé.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code doc-icon"></i><div><div class="doc-title">HTML/CSS Avancé</div><span class="doc-sub">Expert</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="html_css_avancé_p2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code doc-icon"></i><div><div class="doc-title">HTML/CSS P2</div><span class="doc-sub">Avancé 2</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Les_formulaires.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-wpforms doc-icon"></i><div><div class="doc-title">Formulaires</div><span class="doc-sub">Web</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="atelier_09_TP1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-laptop-code doc-icon"></i><div><div class="doc-title">Atelier 09 TP1</div><span class="doc-sub">Pratique</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="atelier_10_tp2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-laptop-code doc-icon"></i><div><div class="doc-title">Atelier 10 TP2</div><span class="doc-sub">Pratique</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Javascript1_2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-js doc-icon"></i><div><div class="doc-title">JS 1/2</div><span class="doc-sub">Script</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Javascript tp12 .pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-js doc-icon"></i><div class="doc-content"><div class="doc-title">Javascript TP12</div><span class="doc-sub">Atelier 12</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Javascript_tp13 .pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-keyboard doc-icon"></i><div><div class="doc-title">Javascript TP13</div><span class="doc-sub">Événements Touches</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-desktop doc-icon"></i><div class="doc-content"><div class="doc-title">Site Vitrine GSB</div><span class="doc-sub">WYSIWYG / Template</span></div></div><div class="d-flex gap-2 ms-auto"><a href="Le_site_vitrine.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="site vitrine.zip" download class="v-btn-custom" title="Télécharger ZIP" style="background: var(--primary); color: #000;">ZIP</a></div></div></div>
-                        <div class="col-lg-4 col-md-6"><a href="2-Lhébergement-du-site.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-server doc-icon"></i><div class="doc-content"><div class="doc-title">Hébergement GSB</div><span class="doc-sub">TinyWeb / XAMPP / Apache</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                       <div class="col-lg-4 col-md-6"><a href="3 - Le transfert du site.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-exchange-alt doc-icon"></i><div class="doc-content"><div class="doc-title">Transfert & Sécurité GSB</div><span class="doc-sub">FTP / FTPS / Wireshark</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                       <div class="col-lg-4 col-md-6"><a href="4 - Gestionnaire de sauvegardes.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-chart-line doc-icon"></i><div class="doc-content"><div class="doc-title">App Gestion Sauvegardes</div><span class="doc-sub">JS / Persistance / Dashboard VM</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-<div class="col-lg-4 col-md-6"><a href="5 - Protection du serveur web.docx.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-lock doc-icon"></i><div class="doc-content"><div class="doc-title">Protection Serveur Web</div><span class="doc-sub">Permissions / Hachage / MySQL</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>                    </div>
-                </div>
-
-                <div class="tab-pane fade" id="pills-beauvallet">
-                    <div class="row g-3">
-                        <div class="col-lg-4 col-md-6"><a href="tp1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-gamepad doc-icon"></i><div><div class="doc-title">Jeux Labyrinthe</div><span class="doc-sub">Code.org</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp5 java.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">Java Intro</div><span class="doc-sub">TP5</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Java.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">Java 2</div><span class="doc-sub">Avancé</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="tp_shifumi.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-gamepad doc-icon"></i><div><div class="doc-title">TP Shifumi</div><span class="doc-sub">Jeu Java</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TP_5_JAVA.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">TP 5 JAVA</div><span class="doc-sub">Suite</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TP_fonctions_et_procédure.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code-branch doc-icon"></i><div><div class="doc-title">Fonctions</div><span class="doc-sub">Algo</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Bataille_navale.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-ship doc-icon"></i><div><div class="doc-title">Bataille Navale</div><span class="doc-sub">Jeu</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TP_POO..pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-cubes doc-icon"></i><div><div class="doc-title">TP POO</div><span class="doc-sub">Objets</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div><div class="doc-title">TP PHP</div><span class="doc-sub">Back</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="Scene-Builder.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-paint-brush doc-icon"></i><div><div class="doc-title">Scene Builder</div><span class="doc-sub">JavaFX</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="AnalyseSI.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-magnifying-glass-chart doc-icon"></i><div class="doc-content"><div class="doc-title">AnalyseSI</div><span class="doc-sub">Modélisation</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-database doc-icon"></i><div class="doc-content"><div class="doc-title">Projet BDD Lycée</div><span class="doc-sub">SQL / MCD / Script</span></div></div><div class="d-flex gap-2 ms-auto"><a href="tp_bdd.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="bdd_lyc__e_paul_lapie.sql" download class="v-btn-custom" title="Télécharger SQL" style="background: var(--primary); color: #000;">SQL</a></div></div></div>
-                        <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hippo doc-icon"></i><div class="doc-content"><div class="doc-title">BDD ZOO</div><span class="doc-sub">SQL / MCD / MLD</span></div></div><div class="d-flex gap-2 ms-auto"><a href="bdd_zoo.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="bdd_zoo.pdf" download class="v-btn-custom" title="Télécharger" style="background: var(--primary); color: #000;">DL</a></div></div></div>
-                    </div>
-                </div>
-
-                <div class="tab-pane fade" id="pills-b1-beauvallet">
-                    <div class="row g-3">
-                        
-                    <div class="col-lg-4 col-md-6"><a href="TD4-BDD_leclerc.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-database doc-icon"></i><div class="doc-content"><div class="doc-title">TD4 BDD Leclerc</div><span class="doc-sub">MCD / MRD / Requêtes SQL</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                   <div class="col-lg-4 col-md-6"><a href="BDD-TD3.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-database doc-icon"></i><div class="doc-content"><div class="doc-title">TD3 BDD</div><span class="doc-sub">Requêtes SQL / Alter Table</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                  <div class="col-lg-4 col-md-6"><a href="Droits d'accès à une base de données.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-key doc-icon"></i><div class="doc-content"><div class="doc-title">Gestion des Droits BDD</div><span class="doc-sub">GRANT / REVOKE / Rôles SQL</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                    <div class="col-lg-4 col-md-6"><a href="Gestion des USERS  Test sur PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div class="doc-content"><div class="doc-title">PHP & USERS MySQL</div><span class="doc-sub">Connexion BDD / Affichage PHP</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                    <div class="col-lg-4 col-md-6"><a href="Bases_du_langage_PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div class="doc-content"><div class="doc-title">TP 1 base PHP</div><span class="doc-sub"> /</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-<div class="col-lg-4 col-md-6"><a href="Programmer_avec_PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div class="doc-content"><div class="doc-title">Programmer avec PHP</div><span class="doc-sub">Boucles / Variables / Tableaux</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                <div class="tab-pane fade show active year-pane" id="year1-pane" role="tabpanel" aria-labelledby="year1-tab">
                     
-                <div class="col-lg-4 col-md-6"><a href="3.Transmission de données entre pages.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-exchange-alt doc-icon"></i><div class="doc-content"><div class="doc-title">Transmission de données</div><span class="doc-sub">PHP / GET & POST / Formulaires</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                        <li class="nav-item"><button class="nav-link" id="pills-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-sotoca">Mr Sotoca</button></li>
+                        <li class="nav-item"><button class="nav-link" id="pills-b2-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-b2-sotoca">Bloc 2 Mr Sotoca</button></li>
+                        <li class="nav-item"><button class="nav-link" id="pills-b3-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-b3-sotoca">Bloc 3 Mr Sotoca</button></li>
+                        <li class="nav-item"><button class="nav-link" id="pills-atelier-tab" data-bs-toggle="pill" data-bs-target="#pills-atelier">Ateliers</button></li>
+                        <li class="nav-item"><button class="nav-link" id="pills-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-beauvallet">Mme Beauvallet</button></li>
+                        <li class="nav-item"><button class="nav-link" id="pills-b1-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-b1-beauvallet">Bloc 1 Mme Beauvallet</button></li>
+                        <li class="nav-item"><button class="nav-link" id="pills-b3-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-b3-beauvallet">Bloc 3 Mme Beauvallet</button></li>
+                    </ul>                           
+                    
+                    <div class="tab-content" id="pills-tabContent">
+                        <div id="placeholder-msg" class="text-center py-5">
+                            <p class="fs-5" style="color: var(--text-gray);"><i class="fas fa-arrow-up me-2"></i> Sélectionnez une catégorie pour afficher les documents</p>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-sotoca">
+                            <div class="row g-3">
+                                <div class="col-lg-4 col-md-6"><a href="tp3.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div><div class="doc-title">Initiation Réseau</div><span class="doc-sub">TP3</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="tp4.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-tools doc-icon"></i><div><div class="doc-title">Diagnostic</div><span class="doc-sub">TP4</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="tp7.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-camera doc-icon"></i><div><div class="doc-title">Captures</div><span class="doc-sub">TP7</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="commandes_cmd.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-terminal doc-icon"></i><div><div class="doc-title">CMD</div><span class="doc-sub">Terminal</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="tp_TechCorp.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-building doc-icon"></i><div><div class="doc-title">TP TechCorp</div><span class="doc-sub">Projet</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="tp21.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-terminal doc-icon"></i><div class="doc-content"><div class="doc-title">TP21 Linux</div><span class="doc-sub">Admin Système / Permissions</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="TP1 Installation d'un serveur _ TP2 L'Active Directory.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-users-cog doc-icon"></i><div class="doc-content"><div class="doc-title">TP1&2 Windows Server</div><span class="doc-sub">Active Directory / DNS / Groupes</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="TP3_Connexion_Domaine.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-plug doc-icon"></i><div class="doc-content"><div class="doc-title">TP3 - Connexion Domaine</div><span class="doc-sub">Active Directory / Poste Client / DNS</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="compte_rendu_tp4.docx.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-cog doc-icon"></i><div class="doc-content"><div class="doc-title">TP4 - Gestion des GPO</div><span class="doc-sub">Unités d'Org / GPO / Event Viewer</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-b2-sotoca">
+                            <div class="row g-3">
+                              <div class="col-lg-4 col-md-6"><a href="TP01_Prise_de_contrôle_à_distance.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div class="doc-content"><div class="doc-title">TP01 - Contrôle Distance</div><span class="doc-sub">Audit RustDesk / AnyDesk / RDP</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>    
+                              <div class="col-lg-4 col-md-6"><a href="Technicien_documentation .pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-gear doc-icon"></i><div class="doc-content"><div class="doc-title">Doc Technicien AnyDesk</div><span class="doc-sub">Installation et Mode Service</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                              <div class="col-lg-4 col-md-6"><a href="Utilisateur_documentation.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-tie doc-icon"></i><div class="doc-content"><div class="doc-title">Doc Utilisateur AnyDesk</div><span class="doc-sub">Guide d'assistance à distance</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                              <div class="col-lg-4 col-md-6"><a href="TP02_Partitionnement_de_disques_durs.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hard-drive doc-icon"></i><div class="doc-content"><div class="doc-title">TP02 - Partitionnement</div><span class="doc-sub">EaseUS / Image Disque / Live CD</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>  
+                              <div class="col-lg-4 col-md-6"><a href="TP03-1-Clônage.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-copy doc-icon"></i><div class="doc-content"><div class="doc-title">TP03 - Clonage</div><span class="doc-sub">Clonezilla / Sauvegarde ISO</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                              <div class="col-lg-4 col-md-6"><a href="TP04-WakeOnLan.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-wifi doc-icon"></i><div class="doc-content"><div class="doc-title">TP04 - Wake On Lan</div><span class="doc-sub">BIOS / Magic Packet / EtherCheck</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                              <div class="col-lg-4 col-md-6"><a href="TP05 - Serveur de fichiers.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-folder-tree doc-icon"></i><div class="doc-content"><div class="doc-title">TP05 - Serveur Fichiers</div><span class="doc-sub">HFS / Partage HTTP / Droits</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                              <div class="col-lg-4 col-md-6"><a href="TP06_Keylogger_CompteRendu.docx.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-secret doc-icon"></i><div class="doc-content"><div class="doc-title">TP06 - Mise en place Keylogger</div><span class="doc-sub">Powered Keylogger / Furtivité / RGPD</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                              <div class="col-lg-4 col-md-6"><a href="tp07_kit_technicien.docx.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-toolbox doc-icon"></i><div class="doc-content"><div class="doc-title">TP07 - Kit Technicien</div><span class="doc-sub">Outils Portables / Diagnostic / Réseau</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                              <div class="col-lg-4 col-md-6"><a href="TP09_Switch_Manageable_Fahad_yoann.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div class="doc-content"><div class="doc-title">TP09 Switch Netgear</div><span class="doc-sub">VLAN Port-Based / Switch / DHCP</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-b3-sotoca">
+                            <div class="row g-3">
+                                <div class="col-lg-4 col-md-6"><a href="b3_tp1_sotoca.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hdd doc-icon"></i><div><div class="doc-title">Serveur NAS</div><span class="doc-sub">Stockage</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="données_hachées.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-lock doc-icon"></i><div><div class="doc-title">Hachage</div><span class="doc-sub">Sécurité</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="DeepFreeze_Complet.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-snowflake doc-icon"></i><div class="doc-content"><div class="doc-title">TP Deep Freeze</div><span class="doc-sub">Gel Système / Console / ThawSpace</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-atelier">
+                            <div class="row g-3">
+                                <div class="col-lg-4 col-md-6"><a href="tp2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-globe doc-icon"></i><div><div class="doc-title">Portfolio</div><span class="doc-sub">Web Dev</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="tp6 html.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-html5 doc-icon"></i><div><div class="doc-title">HTML Bases</div><span class="doc-sub">TP6</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="tp css.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-css3-alt doc-icon"></i><div><div class="doc-title">CSS</div><span class="doc-sub">Style</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="TD1-Ressources.zip" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-file-archive doc-icon text-warning"></i><div><div class="doc-title">Site Chuck</div><span class="doc-sub">ZIP</span></div></div><i class="fas fa-download text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="ccs_html_avancé.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code doc-icon"></i><div><div class="doc-title">HTML/CSS Avancé</div><span class="doc-sub">Expert</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="html_css_avancé_p2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code doc-icon"></i><div><div class="doc-title">HTML/CSS P2</div><span class="doc-sub">Avancé 2</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="Les_formulaires.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-wpforms doc-icon"></i><div><div class="doc-title">Formulaires</div><span class="doc-sub">Web</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="atelier_09_TP1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-laptop-code doc-icon"></i><div><div class="doc-title">Atelier 09 TP1</div><span class="doc-sub">Pratique</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="atelier_10_tp2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-laptop-code doc-icon"></i><div><div class="doc-title">Atelier 10 TP2</div><span class="doc-sub">Pratique</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="Javascript1_2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-js doc-icon"></i><div><div class="doc-title">JS 1/2</div><span class="doc-sub">Script</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="Javascript tp12 .pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-js doc-icon"></i><div class="doc-content"><div class="doc-title">Javascript TP12</div><span class="doc-sub">Atelier 12</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="Javascript_tp13 .pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-keyboard doc-icon"></i><div><div class="doc-title">Javascript TP13</div><span class="doc-sub">Événements Touches</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-desktop doc-icon"></i><div class="doc-content"><div class="doc-title">Site Vitrine GSB</div><span class="doc-sub">WYSIWYG / Template</span></div></div><div class="d-flex gap-2 ms-auto"><a href="Le_site_vitrine.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="site vitrine.zip" download class="v-btn-custom" title="Télécharger ZIP" style="background: var(--primary); color: #000;">ZIP</a></div></div></div>
+                                <div class="col-lg-4 col-md-6"><a href="2-Lhébergement-du-site.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-server doc-icon"></i><div class="doc-content"><div class="doc-title">Hébergement GSB</div><span class="doc-sub">TinyWeb / XAMPP / Apache</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="3 - Le transfert du site.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-exchange-alt doc-icon"></i><div class="doc-content"><div class="doc-title">Transfert & Sécurité GSB</div><span class="doc-sub">FTP / FTPS / Wireshark</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="4 - Gestionnaire de sauvegardes.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-chart-line doc-icon"></i><div class="doc-content"><div class="doc-title">App Gestion Sauvegardes</div><span class="doc-sub">JS / Persistance / Dashboard VM</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="5 - Protection du serveur web.docx.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-lock doc-icon"></i><div class="doc-content"><div class="doc-title">Protection Serveur Web</div><span class="doc-sub">Permissions / Hachage / MySQL</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="3.Transmission de données entre pages.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-exchange-alt doc-icon"></i><div class="doc-content"><div class="doc-title">Transmission de données</div><span class="doc-sub">PHP / GET & POST / Formulaires</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-beauvallet">
+                            <div class="row g-3">
+                                <div class="col-lg-4 col-md-6"><a href="tp1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-gamepad doc-icon"></i><div><div class="doc-title">Jeux Labyrinthe</div><span class="doc-sub">Code.org</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="tp5 java.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">Java Intro</div><span class="doc-sub">TP5</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="Java.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">Java 2</div><span class="doc-sub">Avancé</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="tp_shifumi.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-gamepad doc-icon"></i><div><div class="doc-title">TP Shifumi</div><span class="doc-sub">Jeu Java</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="TP_5_JAVA.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-java doc-icon"></i><div><div class="doc-title">TP 5 JAVA</div><span class="doc-sub">Suite</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="TP_fonctions_et_procédure.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-code-branch doc-icon"></i><div><div class="doc-title">Fonctions</div><span class="doc-sub">Algo</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="Bataille_navale.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-ship doc-icon"></i><div><div class="doc-title">Bataille Navale</div><span class="doc-sub">Jeu</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="TP_POO..pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-cubes doc-icon"></i><div><div class="doc-title">TP POO</div><span class="doc-sub">Objets</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div><div class="doc-title">TP PHP</div><span class="doc-sub">Back</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="Scene-Builder.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-paint-brush doc-icon"></i><div><div class="doc-title">Scene Builder</div><span class="doc-sub">JavaFX</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="AnalyseSI.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-magnifying-glass-chart doc-icon"></i><div class="doc-content"><div class="doc-title">AnalyseSI</div><span class="doc-sub">Modélisation</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-database doc-icon"></i><div class="doc-content"><div class="doc-title">Projet BDD Lycée</div><span class="doc-sub">SQL / MCD / Script</span></div></div><div class="d-flex gap-2 ms-auto"><a href="tp_bdd.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="bdd_lyc__e_paul_lapie.sql" download class="v-btn-custom" title="Télécharger SQL" style="background: var(--primary); color: #000;">SQL</a></div></div></div>
+                                <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-hippo doc-icon"></i><div class="doc-content"><div class="doc-title">BDD ZOO</div><span class="doc-sub">SQL / MCD / MLD</span></div></div><div class="d-flex gap-2 ms-auto"><a href="bdd_zoo.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="bdd_zoo.pdf" download class="v-btn-custom" title="Télécharger" style="background: var(--primary); color: #000;">DL</a></div></div></div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-b1-beauvallet">
+                            <div class="row g-3">
+                                <div class="col-lg-4 col-md-6"><a href="TD4-BDD_leclerc.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-database doc-icon"></i><div class="doc-content"><div class="doc-title">TD4 BDD Leclerc</div><span class="doc-sub">MCD / MRD / Requêtes SQL</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="BDD-TD3.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-database doc-icon"></i><div class="doc-content"><div class="doc-title">TD3 BDD</div><span class="doc-sub">Requêtes SQL / Alter Table</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="Droits d'accès à une base de données.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-key doc-icon"></i><div class="doc-content"><div class="doc-title">Gestion des Droits BDD</div><span class="doc-sub">GRANT / REVOKE / Rôles SQL</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="Gestion des USERS  Test sur PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div class="doc-content"><div class="doc-title">PHP & USERS MySQL</div><span class="doc-sub">Connexion BDD / Affichage PHP</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="Bases_du_langage_PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div class="doc-content"><div class="doc-title">TP 1 base PHP</div><span class="doc-sub"> /</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="Programmer_avec_PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div class="doc-content"><div class="doc-title">Programmer avec PHP</div><span class="doc-sub">Boucles / Variables / Tableaux</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-b3-beauvallet">
+                            <div class="row g-3">
+                                <div class="col-lg-4 col-md-6"><a href="TP1_bloc_3.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-cube doc-icon"></i><div><div class="doc-title">TP1 Bloc 3</div><span class="doc-sub">Activité</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="TP_PIA.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-project-diagram doc-icon"></i><div><div class="doc-title">TP PIA</div><span class="doc-sub">Projet</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="PIA_2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-project-diagram doc-icon"></i><div><div class="doc-title">TP PIA 2</div><span class="doc-sub">Projet 2</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="pia yoann.zip" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-file-archive doc-icon text-warning"></i><div><div class="doc-title">ZIP PIA 2</div><span class="doc-sub">Ressources</span></div></div><i class="fas fa-download text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="ch3_tp1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-book doc-icon"></i><div><div class="doc-title">Chapitre 3 TP1</div><span class="doc-sub">CR</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="TD02_BEAUVALLET.docx.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-shield doc-icon"></i><div class="doc-content"><div class="doc-title">Sécurisation PGP</div><span class="doc-sub">PGP / VirtualBox / Preuve Numérique</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>                        
+                                <div class="col-lg-4 col-md-6"><a href="TD1_CH4.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-secret doc-icon"></i><div class="doc-content"><div class="doc-title">TD1 CH4 - Audit Sécurité</div><span class="doc-sub">John the Ripper / Ophcrack</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="TD2_CH4.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-search-plus doc-icon"></i><div class="doc-content"><div class="doc-title">TD 07 - Veille Info</div><span class="doc-sub">Curation / Feedly / Cybersécurité</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div class="doc-content"><div class="doc-title">TD08 - Routage VLAN</div><span class="doc-sub">Packet Tracer / 802.1Q</span></div></div><div class="d-flex gap-2 ms-auto"><a href="TD 08 packet tracer.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="TP 8.pkt" download class="v-btn-custom" title="Télécharger PKT" style="background: var(--primary); color: var(--btn-main-text);">PKT</a></div></div></div>                  
+                                <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-shield-alt doc-icon"></i><div class="doc-content"><div class="doc-title">Protection Numérique</div><span class="doc-sub">Privilèges / RGPD / VLAN</span></div></div><div class="d-flex gap-2 ms-auto"><a href="chap 5 th3.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="chap 5 th3v1.pkt" download class="v-btn-custom" title="Télécharger PKT" style="background: var(--primary); color: var(--btn-main-text);">PKT</a></div></div></div>                    
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="tab-pane fade" id="pills-b3-beauvallet">
-                    <div class="row g-3">
-                        <div class="col-lg-4 col-md-6"><a href="TP1_bloc_3.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-cube doc-icon"></i><div><div class="doc-title">TP1 Bloc 3</div><span class="doc-sub">Activité</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TP_PIA.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-project-diagram doc-icon"></i><div><div class="doc-title">TP PIA</div><span class="doc-sub">Projet</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="PIA_2.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-project-diagram doc-icon"></i><div><div class="doc-title">TP PIA 2</div><span class="doc-sub">Projet 2</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="pia yoann.zip" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-file-archive doc-icon text-warning"></i><div><div class="doc-title">ZIP PIA 2</div><span class="doc-sub">Ressources</span></div></div><i class="fas fa-download text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="ch3_tp1.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-book doc-icon"></i><div><div class="doc-title">Chapitre 3 TP1</div><span class="doc-sub">CR</span></div></div><i class="fas fa-arrow-right text-primary"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><a href="TD02_BEAUVALLET.docx.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-shield doc-icon"></i><div class="doc-content"><div class="doc-title">Sécurisation PGP</div><span class="doc-sub">PGP / VirtualBox / Preuve Numérique</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>                        
-                        <div class="col-lg-4 col-md-6"><a href="TD1_CH4.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-secret doc-icon"></i><div class="doc-content"><div class="doc-title">TD1 CH4 - Audit Sécurité</div><span class="doc-sub">John the Ripper / Ophcrack</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                       <div class="col-lg-4 col-md-6"><a href="TD2_CH4.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-search-plus doc-icon"></i><div class="doc-content"><div class="doc-title">TD 07 - Veille Info</div><span class="doc-sub">Curation / Feedly / Cybersécurité</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                        <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-network-wired doc-icon"></i><div class="doc-content"><div class="doc-title">TD08 - Routage VLAN</div><span class="doc-sub">Packet Tracer / 802.1Q</span></div></div><div class="d-flex gap-2 ms-auto"><a href="TD 08 packet tracer.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="TP 8.pkt" download class="v-btn-custom" title="Télécharger PKT" style="background: var(--primary); color: var(--btn-main-text);">PKT</a></div></div></div>                  
-<div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-shield-alt doc-icon"></i><div class="doc-content"><div class="doc-title">Protection Numérique</div><span class="doc-sub">Privilèges / RGPD / VLAN</span></div></div><div class="d-flex gap-2 ms-auto"><a href="chap 5 th3.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="chap 5 th3v1.pkt" download class="v-btn-custom" title="Télécharger PKT" style="background: var(--primary); color: var(--btn-main-text);">PKT</a></div></div></div>                    </div>
-                </div>
-
-            </div>
+                </div> <div class="tab-pane fade year-pane" id="year2-pane" role="tabpanel" aria-labelledby="year2-tab">
+                    <div class="text-center py-5 mt-4">
+                        <i class="fas fa-folder-plus fa-3x mb-3" style="color: var(--border);"></i>
+                        <h4 style="color: var(--text-white);">Contenu à venir...</h4>
+                        <p class="fs-6" style="color: var(--text-gray);">Les documents de la deuxième année seront bientôt disponibles ici.</p>
+                    </div>
+                </div> </div>
         </div>
     </section>
 
@@ -712,7 +600,7 @@
 
             <div class="text-center mb-5">
                 <button class="btn-sec w-100 py-3 fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVeille" aria-expanded="false" aria-controls="collapseVeille" id="btnVeille" style="border-style: dashed; text-transform: none; letter-spacing: 1px;">
-                    <i class="fas fa-robot me-3"></i> Veille Technologique Robot Humanoïde <i class="fas fa-chevron-down ms-3 rotate-icon"></i>
+                    <i class="fas fa-robot me-3 text-primary"></i> Veille Technologique Robot Humanoïde <i class="fas fa-chevron-down ms-3 rotate-icon"></i>
                 </button>
             </div>
 
@@ -892,12 +780,11 @@
             let width = 0;
             
             let interval = setInterval(() => {
-                width += 10; // Accéléré pour plus de fluidité
+                width += 10; 
                 if(width >= 100) {
                     width = 100;
                     clearInterval(interval);
                     setTimeout(() => {
-                        // Animation de transition Zoom Out + Fondu
                         loader.style.opacity = "0";
                         loader.style.transform = "scale(1.1)";
                         setTimeout(() => { 
@@ -947,14 +834,40 @@
             document.getElementById("backToTop").style.display = window.scrollY > 300 ? "block" : "none";
         };
 
-        // --- SEARCH ---
+        // --- SEARCH GLOBAL MULTI-ANNEES ---
         document.getElementById('pdfSearch').onkeyup = function() {
             const val = this.value.toLowerCase();
+            let foundInYear1 = false;
+            let foundInYear2 = false;
+
             document.querySelectorAll('.doc-item').forEach(item => {
                 const match = item.textContent.toLowerCase().includes(val);
-                item.closest('.col-lg-4, .col-md-6').style.display = match ? "block" : "none";
-                if(match && val !== "") item.closest('.tab-pane').classList.add('active', 'show');
+                const card = item.closest('.col-lg-4, .col-md-6'); 
+                if(card) card.style.display = match ? "block" : "none";
+                
+                if(match && val !== "") {
+                    // Afficher le tab prof de ce doc
+                    let innerTab = item.closest('.tab-pane:not(.year-pane)');
+                    if(innerTab) innerTab.classList.add('active', 'show');
+                    
+                    // Retenir dans quelle année on a trouvé un doc
+                    if (item.closest('#year1-pane')) foundInYear1 = true;
+                    if (item.closest('#year2-pane')) foundInYear2 = true;
+                }
             });
+
+            // Gérer automatiquement l'onglet de l'année si on trouve un résultat (et qu'on a tapé qqch)
+            if(val !== "") {
+                if(foundInYear1 && !foundInYear2) {
+                    document.getElementById('year1-tab').click();
+                } else if (!foundInYear1 && foundInYear2) {
+                    document.getElementById('year2-tab').click();
+                }
+            }
+
+            // Gérer le placeholder de la 1ere année
+            let msg = document.getElementById('placeholder-msg');
+            if(msg) msg.style.display = val === "" ? 'block' : 'none';
         };
 
         // --- TILT ---
