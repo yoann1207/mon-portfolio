@@ -7,10 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    
+        
     <style>
         /* --- 1. CONFIGURATION DES VARIABLES (THEMES) --- */
-
         :root {
             --bg-core: #020408;
             --primary: #38bdf8;   
@@ -26,7 +25,6 @@
             --shadow-card: 0 10px 30px -10px rgba(0,0,0,0.5);
             --glow-color: rgba(56, 189, 248, 0.5); 
         }
-
         body.light {
             --bg-core: #dce3e8;   
             --primary: #3b82f6;   
@@ -42,7 +40,6 @@
             --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --glow-color: rgba(59, 130, 246, 0.2); 
         }
-
         /* --- AJOUTS SYMPAS : LOADING & EFFETS --- */
         #loader {
             position: fixed; inset: 0; background: #020408; z-index: 100000;
@@ -67,9 +64,7 @@
         }
 
         /* -------------------------------------- */
-
         html { scroll-behavior: smooth; }
-
         body {
             background-color: var(--bg-core);
             color: var(--text-gray);
@@ -87,7 +82,6 @@
         }
 
         a { text-decoration: none; transition: 0.3s ease; }
-
         .theme-switcher { position: fixed; top: 85px;  right: 20px; z-index: 2000; }
         #settings-btn {
             font-size: 1.5rem; background: var(--card-bg); border: 1px solid var(--border); color: var(--text-white);
@@ -109,7 +103,6 @@
         #theme-menu button:hover { background: var(--primary); color: #fff;  }
 
         .hidden { display: none !important; }
-
         .background-aurora {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
             background: radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.15), transparent 50%),
@@ -173,7 +166,6 @@
             box-shadow: var(--shadow-card); backdrop-filter: blur(10px);
         }
         .hover-card:hover { border-color: var(--primary); box-shadow: 0 15px 35px -10px var(--glow-color); }
-        
         .skill-box { padding: 25px; display: flex; align-items: center; gap: 20px; }
         .skill-icon { font-size: 2rem; color: var(--primary); }
 
@@ -249,7 +241,7 @@
 
         footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-gray); font-size: 0.9rem; margin-top: 50px; background: var(--navbar-bg); }
         @media (max-width: 768px) { .hero h1 { font-size: 3.5rem; } .navbar { width: 100%; top: 0; border-radius: 0; } }
-        
+                
         .v-btn-custom { padding: 4px 10px; font-size: 0.75rem; border-radius: 6px; font-weight: 600; transition: 0.2s; text-decoration: none; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-white); }
         .v-btn-custom:hover { background: var(--primary); color: #000; }
     </style>
@@ -364,7 +356,7 @@
                 
                 <div class="tab-pane fade show active year-pane" id="year1-pane" role="tabpanel" aria-labelledby="year1-tab">
                     
-                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                    <ul class="nav nav-pills flex-wrap" id="pills-tab" role="tablist">
                         <li class="nav-item"><button class="nav-link" id="pills-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-sotoca">Mr Sotoca</button></li>
                         <li class="nav-item"><button class="nav-link" id="pills-b2-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-b2-sotoca">Bloc 2 Mr Sotoca</button></li>
                         <li class="nav-item"><button class="nav-link" id="pills-b3-sotoca-tab" data-bs-toggle="pill" data-bs-target="#pills-b3-sotoca">Bloc 3 Mr Sotoca</button></li>
@@ -372,6 +364,7 @@
                         <li class="nav-item"><button class="nav-link" id="pills-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-beauvallet">Mme Beauvallet</button></li>
                         <li class="nav-item"><button class="nav-link" id="pills-b1-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-b1-beauvallet">Bloc 1 Mme Beauvallet</button></li>
                         <li class="nav-item"><button class="nav-link" id="pills-b3-beauvallet-tab" data-bs-toggle="pill" data-bs-target="#pills-b3-beauvallet">Bloc 3 Mme Beauvallet</button></li>
+                        <li class="nav-item"><button class="nav-link" id="pills-stage-tab" data-bs-toggle="pill" data-bs-target="#pills-stage">Stage</button></li>
                     </ul>                           
                     
                     <div class="tab-content" id="pills-tabContent">
@@ -390,7 +383,7 @@
                                 <div class="col-lg-4 col-md-6"><a href="TP1 Installation d'un serveur _ TP2 L'Active Directory.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-users-cog doc-icon"></i><div class="doc-content"><div class="doc-title">TP1&2 Windows Server</div><span class="doc-sub">Active Directory / DNS / Groupes</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                                 <div class="col-lg-4 col-md-6"><a href="TP3_Connexion_Domaine.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-plug doc-icon"></i><div class="doc-content"><div class="doc-title">TP3 - Connexion Domaine</div><span class="doc-sub">Active Directory / Poste Client / DNS</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                                 <div class="col-lg-4 col-md-6"><a href="compte_rendu_tp4.docx.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-cog doc-icon"></i><div class="doc-content"><div class="doc-title">TP4 - Gestion des GPO</div><span class="doc-sub">Unités d'Org / GPO / Event Viewer</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                           <div class="col-lg-4 col-md-6"><a href="TP5_TOURNAL_Yoann.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-users-cog doc-icon"></i><div class="doc-content"><div class="doc-title">TP5 - Stratégies GPO</div><span class="doc-sub">GPMC / Restrictions / Windows Server</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="TP5_TOURNAL_Yoann.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-users-cog doc-icon"></i><div class="doc-content"><div class="doc-title">TP5 - Stratégies GPO</div><span class="doc-sub">GPMC / Restrictions / Windows Server</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                             </div>
                         </div>
 
@@ -436,6 +429,8 @@
                                 <div class="col-lg-4 col-md-6"><a href="3 - Le transfert du site.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-exchange-alt doc-icon"></i><div class="doc-content"><div class="doc-title">Transfert & Sécurité GSB</div><span class="doc-sub">FTP / FTPS / Wireshark</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                                 <div class="col-lg-4 col-md-6"><a href="4 - Gestionnaire de sauvegardes.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-chart-line doc-icon"></i><div class="doc-content"><div class="doc-title">App Gestion Sauvegardes</div><span class="doc-sub">JS / Persistance / Dashboard VM</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                                 <div class="col-lg-4 col-md-6"><a href="5 - Protection du serveur web.docx.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-user-lock doc-icon"></i><div class="doc-content"><div class="doc-title">Protection Serveur Web</div><span class="doc-sub">Permissions / Hachage / MySQL</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="3.Transmission de données entre pages.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-exchange-alt doc-icon"></i><div class="doc-content"><div class="doc-title">Transmission de données</div><span class="doc-sub">PHP / GET & POST / Formulaires</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
+                                <div class="col-lg-4 col-md-6"><a href="connexion_bdd.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-database doc-icon"></i><div class="doc-content"><div class="doc-title">Connexion BDD</div><span class="doc-sub">PHP / PDO / Requêtes SQL</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                             </div>
                         </div>
 
@@ -465,8 +460,6 @@
                                 <div class="col-lg-4 col-md-6"><a href="Gestion des USERS  Test sur PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div class="doc-content"><div class="doc-title">PHP & USERS MySQL</div><span class="doc-sub">Connexion BDD / Affichage PHP</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                                 <div class="col-lg-4 col-md-6"><a href="Bases_du_langage_PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div class="doc-content"><div class="doc-title">TP 1 base PHP</div><span class="doc-sub"> /</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                                 <div class="col-lg-4 col-md-6"><a href="Programmer_avec_PHP.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fab fa-php doc-icon"></i><div class="doc-content"><div class="doc-title">Programmer avec PHP</div><span class="doc-sub">Boucles / Variables / Tableaux</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                                <div class="col-lg-4 col-md-6"><a href="3.Transmission de données entre pages.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-exchange-alt doc-icon"></i><div class="doc-content"><div class="doc-title">Transmission de données</div><span class="doc-sub">PHP / GET & POST / Formulaires</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
-                                <div class="col-lg-4 col-md-6"><a href="connexion_bdd.pdf" target="_blank" class="doc-item hover-card"><div class="doc-left"><i class="fas fa-database doc-icon"></i><div class="doc-content"><div class="doc-title">Connexion BDD</div><span class="doc-sub">PHP / PDO / Requêtes SQL</span></div></div><i class="fas fa-arrow-right doc-action"></i></a></div>
                             </div>
                         </div>
 
@@ -484,6 +477,24 @@
                                 <div class="col-lg-4 col-md-6"><div class="doc-item hover-card"><div class="doc-left"><i class="fas fa-shield-alt doc-icon"></i><div class="doc-content"><div class="doc-title">Protection Numérique</div><span class="doc-sub">Privilèges / RGPD / VLAN</span></div></div><div class="d-flex gap-2 ms-auto"><a href="chap 5 th3.pdf" target="_blank" class="v-btn-custom" title="Voir PDF">PDF</a><a href="chap 5 th3v1.pkt" download class="v-btn-custom" title="Télécharger PKT" style="background: var(--primary); color: var(--btn-main-text);">PKT</a></div></div></div>                    
                             </div>
                         </div>
+
+                        <div class="tab-pane fade" id="pills-stage">
+                            <div class="row g-3">
+                                <div class="col-lg-4 col-md-6">
+                                    <a href="#" target="_blank" class="doc-item hover-card">
+                                        <div class="doc-left">
+                                            <i class="fas fa-briefcase doc-icon" style="color: var(--accent);"></i>
+                                            <div class="doc-content">
+                                                <div class="doc-title">Rapport de Stage</div>
+                                                <span class="doc-sub">Alpes Conseil Informatique</span>
+                                            </div>
+                                        </div>
+                                        <i class="fas fa-arrow-right doc-action"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div> <div class="tab-pane fade year-pane" id="year2-pane" role="tabpanel" aria-labelledby="year2-tab">
                     <div class="text-center py-5 mt-4">
